@@ -5,6 +5,7 @@ vector<Course*> Course::list;
 Course::Course()
 {
     this->id = list.size();
+    Course.list.push_back(this);
 }
 
 int Course::getId() const

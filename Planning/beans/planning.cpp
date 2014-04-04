@@ -5,6 +5,7 @@ vector<Planning*> Planning::list;
 Planning::Planning()
 {
     this->id = list.size();
+    Planning.list.push_back(this);
 }
 
 int Planning::getId() const
