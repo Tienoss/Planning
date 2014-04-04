@@ -1,7 +1,7 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include "main.h"
+#include "../main.h"
 
 class Room
 {

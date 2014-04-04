@@ -1,7 +1,7 @@
 #ifndef PROMOTION_H
 #define PROMOTION_H
 
-#include "main.h"
+#include "../main.h"
 
 class Promotion
 {

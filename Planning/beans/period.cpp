@@ -1,4 +1,4 @@
-#include "main.h"
+#include "../main.h"
 
 vector<Period*> Period::list;
 
@@ -17,15 +17,6 @@ void Period::setId(int value)
     id = value;
 }
 
-int Period::getId() const
-{
-    return id;
-}
-
-void Period::setId(int value)
-{
-    id = value;
-}
 int Period::getFrom() const
 {
     return from;
@@ -46,14 +37,5 @@ void Period::setLength(int value)
 }
 
 
-string Period::getName() const
-{
-    return name;
-}
-
-void Period::setName(const string &value)
-{
-    name = value;
-}
 
 

@@ -1,7 +1,7 @@
 #ifndef TEACHER_H
 #define TEACHER_H
 
-#include "main.h"
+#include "../main.h"
 
 class Teacher
 {

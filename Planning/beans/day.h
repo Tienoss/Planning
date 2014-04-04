@@ -1,10 +1,17 @@
 #ifndef DAY_H
 #define DAY_H
 
+#include "../main.h"
+
 class Day
 {
 public:
     Day();
+
+    //Variables globales
+    static vector<Day*> list;
+
+    //Methodes
     int getId() const;
     void setId(int value);
 

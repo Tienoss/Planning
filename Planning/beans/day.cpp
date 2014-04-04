@@ -1,5 +1,4 @@
-#include "main.h"
-
+#include "../main.h"
 
 vector<Day*> Day::list;
 

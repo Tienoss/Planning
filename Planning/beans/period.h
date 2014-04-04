@@ -1,10 +1,17 @@
 #ifndef PERIOD_H
 #define PERIOD_H
 
+#include "../main.h"
+
 class Period
 {
 public:
     Period();
+
+    //Variables globales
+    static vector<Period*> list;
+
+    //Methodes
     int getId() const;
     void setId(int value);
 

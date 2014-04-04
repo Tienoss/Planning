@@ -7,7 +7,6 @@
 #include <numeric>
 #include <math.h>
 #include <cstdlib>
-#include <unistd.h>
 #include <time.h>
 #include <iostream>
 #include <iomanip>
@@ -22,5 +21,6 @@ using namespace std;
 #include "beans/day.h"
 #include "beans/period.h"
 #include "beans/week.h"
+#include "beans/timeslot.h"
 
 #endif // MAIN_H

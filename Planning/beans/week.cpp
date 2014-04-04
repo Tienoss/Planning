@@ -1,10 +1,10 @@
-#include "main.h"
+#include "../main.h"
 
 vector<Week*> Week::list;
 
 Week::Week()
 {
-   this->id = list.size();
+    this->id = list.size();
 }
 
 int Week::getId() const
