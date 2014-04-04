@@ -1,7 +1,7 @@
 #ifndef WEEK_H
 #define WEEK_H
 
-#include "main.h"
+#include "../main.h"
 
 class Week
 {
