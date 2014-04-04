@@ -24,9 +24,13 @@ public:
     Room getRoom() const;
     void setRoom(const Room &value);
 
+    Teacher getTeacher() const;
+    void setTeacher(const Teacher &value);
+
 private:
     int id;
     Promotion promo;
+    Teacher teacher;
     Room room;
     TimeSlot timeslot;
 };

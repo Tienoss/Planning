@@ -46,3 +46,13 @@ void Course::setTimeSlot(const TimeSlot &value)
 {
     timeslot = value;
 }
+
+Teacher Course::getTeacher() const
+{
+    return teacher;
+}
+
+void Course::setTeacher(const Teacher &value)
+{
+    teacher = value;
+}
