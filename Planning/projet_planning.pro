@@ -10,7 +10,8 @@ SOURCES += main.cpp \
     beans/week.cpp \
     beans/day.cpp \
     beans/period.cpp \
-    beans/timeslot.cpp
+    beans/timeslot.cpp \
+    beans/course.cpp
 
 HEADERS += \
     main.h \
@@ -20,5 +21,6 @@ HEADERS += \
     beans/week.h \
     beans/day.h \
     beans/period.h \
-    beans/timeslot.h
+    beans/timeslot.h \
+    beans/course.h
 
