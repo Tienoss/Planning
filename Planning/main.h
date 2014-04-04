@@ -19,5 +19,8 @@ using namespace std;
 #include "beans/promotion.h"
 #include "beans/room.h"
 #include "beans/teacher.h"
+#include "beans/day.h"
+#include "beans/period.h"
+#include "beans/week.h"
 
 #endif // MAIN_H

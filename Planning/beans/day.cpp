@@ -1,23 +1,28 @@
-#include "day.h"
+#include "main.h"
 
-day::day()
+
+vector<Day*> Day::list;
+
+Day::Day()
 {
+    this->id = list.size();
 }
-int day::getId() const
+
+int Day::getId() const
 {
     return id;
 }
 
-void day::setId(int value)
+void Day::setId(int value)
 {
     id = value;
 }
-int day::getName() const
+int Day::getName() const
 {
     return name;
 }
 
-void day::setName(int value)
+void Day::setName(int value)
 {
     name = value;
 }

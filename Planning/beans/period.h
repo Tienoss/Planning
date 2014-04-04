@@ -1,10 +1,10 @@
 #ifndef PERIOD_H
 #define PERIOD_H
 
-class period
+class Period
 {
 public:
-    period();
+    Period();
     int getId() const;
     void setId(int value);
 

@@ -1,23 +1,28 @@
-#include "week.h"
+#include "main.h"
 
-week::week()
+vector<Week*> Week::list;
+
+Week::Week()
 {
+   this->id = list.size();
 }
-int week::getId() const
+
+int Week::getId() const
 {
     return id;
 }
 
-void week::setId(int value)
+void Week::setId(int value)
 {
     id = value;
 }
-int week::getName() const
+
+int Week::getName() const
 {
     return name;
 }
 
-void week::setName(int value)
+void Week::setName(int value)
 {
     name = value;
 }

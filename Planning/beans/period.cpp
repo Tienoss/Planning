@@ -1,53 +1,57 @@
-#include "period.h"
+#include "main.h"
 
-period::period()
+vector<Period*> Period::list;
+
+Period::Period()
 {
+    this->id = list.size();
 }
-int period::getId() const
+
+int Period::getId() const
 {
     return id;
 }
 
-void period::setId(int value)
+void Period::setId(int value)
 {
     id = value;
 }
 
-int period::getId() const
+int Period::getId() const
 {
     return id;
 }
 
-void period::setId(int value)
+void Period::setId(int value)
 {
     id = value;
 }
-int period::getFrom() const
+int Period::getFrom() const
 {
     return from;
 }
 
-void period::setFrom(int value)
+void Period::setFrom(int value)
 {
     from = value;
 }
-int period::getLength() const
+int Period::getLength() const
 {
     return length;
 }
 
-void period::setLength(int value)
+void Period::setLength(int value)
 {
     length = value;
 }
 
 
-string period::getName() const
+string Period::getName() const
 {
     return name;
 }
 
-void period::setName(const string &value)
+void Period::setName(const string &value)
 {
     name = value;
 }

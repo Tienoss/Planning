@@ -1,10 +1,10 @@
 #ifndef WEEK_H
 #define WEEK_H
 
-class week
+class Week
 {
 public:
-    week();
+    Week();
     int getId() const;
     void setId(int value);
 

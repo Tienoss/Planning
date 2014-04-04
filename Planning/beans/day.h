@@ -1,10 +1,10 @@
 #ifndef DAY_H
 #define DAY_H
 
-class day
+class Day
 {
 public:
-    day();
+    Day();
     int getId() const;
     void setId(int value);
 
