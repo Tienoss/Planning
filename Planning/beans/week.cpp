@@ -5,6 +5,7 @@ vector<Week*> Week::list;
 Week::Week()
 {
     this->id = list.size();
+    Week.list.push_back(this);
 }
 
 int Week::getId() const
