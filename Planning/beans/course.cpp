@@ -8,52 +8,14 @@ Course::Course()
     Course::list.push_back(this);
 }
 
-int Course::getId() const
-{
-    return id;
-}
+TimeSlot* Course::getTimeslot(){return this->timeslot;}
+Course* Course::setTimeslot(TimeSlot* timeslot){this->timeslot = timeslot; return this;}
 
-void Course::setId(int value)
-{
-    id = value;
-}
+Promotion* Course::getPromotion(){return this->promotion;}
+Course* Course::setPromotion(Promotion* promotion){this->promotion = promotion; return this;}
 
-Promotion* Course::getPromotion()
-{
-    return promotion;
-}
+Room* Course::getRoom(){return this->room;}
+Course* Course::setRoom(Room* room){this->room = room; return this;}
 
-void Course::setPromotion(Promotion* value)
-{
-    promotion = value;
-}
-
-Room* Course::getRoom()
-{
-    return room;
-}
-
-void Course::setRoom(Room* value)
-{
-    room = value;
-}
-
-TimeSlot* Course::getTimeslot()
-{
-    return timeslot;
-}
-
-void Course::setTimeslot(TimeSlot* value)
-{
-    timeslot = value;
-}
-
-Teacher* Course::getTeacher()
-{
-    return teacher;
-}
-
-void Course::setTeacher(Teacher* value)
-{
-    teacher = value;
-}
+Teacher* Course::getTeacher(){return this->teacher;}
+Course* Course::setTeacher(Teacher* teacher){this->teacher = teacher; return this;}

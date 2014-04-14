@@ -5,6 +5,13 @@
 
 class Course
 {
+private:
+    int id;
+    Promotion* promotion;
+    Teacher* teacher;
+    Room* room;
+    TimeSlot* timeslot;
+
 public:
     Course();
 
@@ -13,10 +20,17 @@ public:
 
     //Methodes
     TimeSlot* getTimeslot();
-    void setTimeslot(TimeSlot* value);
+    Course* setTimeslot(TimeSlot* timeSlot);
 
-    int getId() const;
-    void setId(int value);
+
+    Promotion* getPromotion();
+    Course* setPromotion(Promotion* promotion);
+
+    Room* getRoom();
+    Course* setRoom(Room* room);
+
+    Teacher* getTeacher();
+    Course* setTeacher(Teacher* teacher);
 
     Promotion* getPromotion();
     void setPromotion(Promotion* value);
