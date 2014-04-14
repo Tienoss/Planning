@@ -19,7 +19,7 @@ public:
     //Methodes
     int getId();
     string getName();
-    void setName(string name);
+    Promotion* setName(string name);
     string toJson() ;
 };
 

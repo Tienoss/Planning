@@ -11,7 +11,7 @@ void MinimalDataSet::load(){
     (new Room())->setName("Room 1");
 
     // Week
-    (new Week())->setName(1);
+    (new Week())->setName("1");
     // Day
     (new Day())->setName("Day 1");
     // Period

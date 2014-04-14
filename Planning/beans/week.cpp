@@ -8,25 +8,11 @@ Week::Week()
     Week::list.push_back(this);
 }
 
-int Week::getId() const
-{
-    return id;
-}
+int Week::getId(){ return this->id;}
 
-void Week::setId(int value)
-{
-    id = value;
-}
+string Week::getName(){ return this->name;}
 
-int Week::getName() const
-{
-    return name;
-}
-
-void Week::setName(int value)
-{
-    name = value;
-}
+Week* Week::setName(string name){this->name = name; return this;}
 
 string Week::jsonList(){
     stringstream ret ; ret << "[" ;
