@@ -33,6 +33,7 @@ class TimeSlot;
 #include "beans/week.h"
 #include "beans/timeslot.h"
 #include "beans/course.h"
+#include "beans/planning.h"
 
 #include "display/export.h"
 
