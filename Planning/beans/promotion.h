@@ -14,11 +14,13 @@ public:
 
     //Variables globales
     static vector<Promotion*> list;
+    static string jsonList() ;
 
     //Methodes
     int getId();
     string getName();
     void setName(string name);
+    string toJson() ;
 };
 
 #endif // PROMOTION_H

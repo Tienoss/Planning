@@ -17,32 +17,32 @@ void Course::setId(int value)
     id = value;
 }
 
-Promotion Course::getPromo() const
+Promotion* Course::getPromotion()
 {
-    return promo;
+    return promotion;
 }
 
-void Course::setPromo(const Promotion &value)
+void Course::setPromotion(Promotion* value)
 {
-    promo = value;
+    promotion = value;
 }
 
-Room Course::getRoom() const
+Room* Course::getRoom()
 {
     return room;
 }
 
-void Course::setRoom(const Room &value)
+void Course::setRoom(Room* value)
 {
     room = value;
 }
 
-TimeSlot Course::getTimeSlot() const
+TimeSlot* Course::getTimeslot()
 {
     return timeslot;
 }
 
-void Course::setTimeSlot(const TimeSlot &value)
+void Course::setTimeslot(TimeSlot* value)
 {
     timeslot = value;
 }

@@ -12,23 +12,23 @@ public:
     static vector<Course*> list;
 
     //Methodes
-    TimeSlot getTimeslot() const;
-    void setTimeslot(const TimeSlot &value);
+    TimeSlot* getTimeslot();
+    void setTimeslot(TimeSlot* value);
 
     int getId() const;
     void setId(int value);
 
-    Promotion getPromo() const;
-    void setPromo(const Promotion &value);
+    Promotion* getPromotion();
+    void setPromotion(Promotion* value);
 
-    Room getRoom() const;
-    void setRoom(const Room &value);
+    Room* getRoom();
+    void setRoom(Room* value);
 
 private:
     int id;
-    Promotion promo;
-    Room room;
-    TimeSlot timeslot;
+    Promotion* promotion;
+    Room* room;
+    TimeSlot* timeslot;
 };
 
 #endif // COURSE_H

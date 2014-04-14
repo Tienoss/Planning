@@ -22,5 +22,8 @@ using namespace std;
 #include "beans/period.h"
 #include "beans/week.h"
 #include "beans/timeslot.h"
+#include "beans/course.h"
+
+#include "display/export.h"
 
 #endif // MAIN_H

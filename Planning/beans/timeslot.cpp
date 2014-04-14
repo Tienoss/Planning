@@ -5,7 +5,7 @@ vector<TimeSlot*> TimeSlot::list;
 TimeSlot::TimeSlot()
 {
     this->id = list.size();
-    TimeSlot.list.push_back(this);
+    TimeSlot::list.push_back(this);
 }
 
 int TimeSlot::getId() const
