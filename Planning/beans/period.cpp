@@ -38,5 +38,23 @@ void Period::setLength(int value)
 }
 
 
+string Period::jsonList(){
+    stringstream ret ; ret << "[" ;
+    for(int i = 0 ; i < Period::list.size() ; i++)
+        ret << Period::list[i]->toJson() << "," ;
+    ret << "]" ; return(ret.str()) ;
+}
+
+string Period::toJson(){
+    stringstream ret ; ret << "{" ;
+    ret << "id:" << this->getId() << "," ;
+    ret << "from:" << this->getFrom() << "," ;
+    ret << "length:" << this->getLength() << "," ;
+    ret << "}" ; return(ret.str()) ;
+}
+
+
+
+
 
 

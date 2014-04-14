@@ -8,8 +8,9 @@ class Period
 public:
     Period();
 
-    //Variables globales
+    // Static
     static vector<Period*> list;
+    static string jsonList() ;
 
     //Methodes
     int getId() const;
@@ -20,6 +21,8 @@ public:
 
     int getLength() const;
     void setLength(int value);
+
+    string toJson() ;
 
 private:
     int id;

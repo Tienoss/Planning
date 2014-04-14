@@ -19,4 +19,3 @@ Course* Course::setRoom(Room* room){this->room = room; return this;}
 
 Teacher* Course::getTeacher(){return this->teacher;}
 Course* Course::setTeacher(Teacher* teacher){this->teacher = teacher; return this;}
-

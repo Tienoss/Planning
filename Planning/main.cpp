@@ -2,7 +2,7 @@
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    Export::getInstance()->run() ;
     return 0;
 }
 

@@ -22,6 +22,7 @@ public:
     TimeSlot* getTimeslot();
     Course* setTimeslot(TimeSlot* timeSlot);
 
+
     Promotion* getPromotion();
     Course* setPromotion(Promotion* promotion);
 
@@ -31,6 +32,11 @@ public:
     Teacher* getTeacher();
     Course* setTeacher(Teacher* teacher);
 
+    Promotion* getPromotion();
+    void setPromotion(Promotion* value);
+
+    Room* getRoom();
+    void setRoom(Room* value);
 };
 
 #endif // COURSE_H

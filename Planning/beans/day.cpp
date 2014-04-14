@@ -5,6 +5,7 @@ vector<Day*> Day::list;
 Day::Day()
 {
     this->id = list.size();
+    Day::list.push_back(this);
 }
 
 int Day::getId() const
