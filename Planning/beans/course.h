@@ -37,6 +37,16 @@ public:
 
     Room* getRoom();
     void setRoom(Room* value);
+
+    Teacher* getTeacher();
+    void setTeacher(Teacher* value);
+
+private:
+    int id;
+    Promotion* promotion;
+    Room* room;
+    TimeSlot* timeslot;
+    Teacher* teacher;
 };
 
 #endif // COURSE_H

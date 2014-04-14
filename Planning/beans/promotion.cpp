@@ -11,9 +11,16 @@ Promotion::Promotion()
 }
 int Promotion::getId(){ return(this->id); }
 string Promotion::getName(){ return(this->name); }
-void Promotion::setName(string name){}
+void Promotion::setName(string name){ this->name = name ;}
 
 
+
+string Promotion::jsonList(){
+    stringstream ret ; ret << "[" ;
+    for(int i = 0 ; i < Promotion::list.size() ; i++)
+        ret << ((i>0)?",":"") << Promotion::list[i]->toJson() ;
+    ret << "]" ; return(ret.str()) ;
+}
 
 
 string Promotion::toJson(){
@@ -21,11 +28,4 @@ string Promotion::toJson(){
     ret << "id:" << this->getId() << "," ;
     ret << "name:\"" << this->getName() << "\"" ;
     ret << "}" ; return(ret.str()) ;
-}
-
-string Promotion::jsonList(){
-    stringstream ret ; ret << "[" ;
-    for(int i = 0 ; i < Promotion::list.size() ; i++)
-        ret << Promotion::list[i]->toJson() << "," ;
-    ret << "]" ; return(ret.str()) ;
 }

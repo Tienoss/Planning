@@ -10,6 +10,7 @@ public:
 
     //Variables globales
     static vector<Week*> list;
+    static string jsonList() ;
 
     //Methodes
     int getId() const;
@@ -17,6 +18,8 @@ public:
 
     int getName() const;
     void setName(int value);
+
+    string toJson() ;
 
 private:
     int id;

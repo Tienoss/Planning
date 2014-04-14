@@ -9,4 +9,18 @@ Teacher::Teacher()
 }
 int Teacher::getId(){ return(this->id); }
 string Teacher::getName(){ return(this->name); }
-void Teacher::setName(string name){}
+Teacher* Teacher::setName(string name){this->name = name ; return(this) ; }
+
+string Teacher::jsonList(){
+    stringstream ret ; ret << "[" ;
+    for(int i = 0 ; i < Teacher::list.size() ; i++)
+        ret << ((i>0)?",":"") << Teacher::list[i]->toJson() ;
+    ret << "]" ; return(ret.str()) ;
+}
+
+string Teacher::toJson(){
+    stringstream ret ; ret << "{" ;
+    ret << "id:" << this->getId() << "," ;
+    ret << "name:\"" << this->getName() << "\"" ;
+    ret << "}" ; return(ret.str()) ;
+}
