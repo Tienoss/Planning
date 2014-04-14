@@ -5,6 +5,10 @@
 
 class Day
 {
+private:
+    int id;
+    string name;
+
 public:
     Day();
 
@@ -13,17 +17,11 @@ public:
     static string jsonList() ;
 
     //Methodes
-    int getId() const;
-    void setId(int value);
-
-    string getName() ;
-    Day* setName(string value);
-
+    int getId();
+    string getName();
+    Day* setName(string name);
     string toJson() ;
 
-private:
-    int id;
-    string name;
 };
 
 #endif // DAY_H

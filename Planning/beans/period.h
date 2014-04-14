@@ -5,6 +5,11 @@
 
 class Period
 {
+private:
+    int id;
+    int from;
+    int length;
+
 public:
     Period();
 
@@ -13,21 +18,14 @@ public:
     static string jsonList() ;
 
     //Methodes
-    int getId() const;
-    void setId(int value);
+    int getId();
+    int getFrom();
+    Period* setFrom(int from);
 
-    int getFrom() const;
-    Period* setFrom(int value);
-
-    int getLength() const;
-    Period* setLength(int value);
+    int getLength();
+    Period* setLength(int length);
 
     string toJson() ;
-
-private:
-    int id;
-    int from;
-    int length;
 };
 
 #endif // PERIOD_H

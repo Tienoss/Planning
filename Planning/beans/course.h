@@ -19,6 +19,8 @@ public:
     static vector<Course*> list;
 
     //Methodes
+    int getId();
+
     TimeSlot* getTimeslot();
     Course* setTimeslot(TimeSlot* timeSlot);
 
