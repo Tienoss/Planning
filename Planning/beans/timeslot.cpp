@@ -8,48 +8,22 @@ TimeSlot::TimeSlot()
     TimeSlot::list.push_back(this);
 }
 
-int TimeSlot::getId() const
-{
-    return id;
-}
+int TimeSlot::getId(){ return id ; }
 
-void TimeSlot::setId(int value)
-{
-    id = value;
-}
-Week* TimeSlot::getWeek()
-{
-    return week;
-}
+Week* TimeSlot::getWeek(){ return this->week; }
+TimeSlot* TimeSlot::setWeek(Week* week){ this->week = week; return(this) ; }
 
-void TimeSlot::setWeek(Week* value)
-{
-    week = value;
-}
+Day* TimeSlot::getDay(){ return this->day; }
+TimeSlot* TimeSlot::setDay(Day* day){ this->day = day; return(this) ; }
 
-Day* TimeSlot::getDay()
-{
-    return day;
-}
+Period* TimeSlot::getPeriod(){ return this->period; }
+TimeSlot* TimeSlot::setPeriod(Period* period){ this->period = period; return(this) ; }
 
-void TimeSlot::setDay(Day* value)
-{
-    day = value;
-}
-Period* TimeSlot::getPeriod()
-{
-    return period;
-}
-
-void TimeSlot::setPeriod(Period* value)
-{
-    period = value;
-}
 
 string TimeSlot::jsonList(){
     stringstream ret ; ret << "[" ;
-    for(int i = 0 ; i < Teacher::list.size() ; i++)
-        ret << ((i>0)?",":"") << Teacher::list[i]->toJson() ;
+    for(int i = 0 ; i < TimeSlot::list.size() ; i++)
+        ret << ((i>0)?",":"") << TimeSlot::list[i]->toJson() ;
     ret << "]" ; return(ret.str()) ;
 }
 
@@ -58,7 +32,7 @@ string TimeSlot::toJson(){
     ret << "id:" << this->getId() << "," ;
     ret << "week:" << this->getWeek()->getId() << "," ;
     ret << "day:" << this->getDay()->getId() << "," ;
-    ret << "week:" << this->getPeriod()->getId() ;
+    ret << "period:" << this->getPeriod()->getId() ;
     ret << "}" ; return(ret.str()) ;
 }
 
