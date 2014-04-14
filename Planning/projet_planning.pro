@@ -13,7 +13,7 @@ SOURCES += main.cpp \
     beans/timeslot.cpp \
     beans/course.cpp \
     display/export.cpp \
-    datas/minimaldataset.cpp
+    datas/minimaldataset.cpp \
     beans/planning.cpp
 
 HEADERS += \
@@ -27,6 +27,6 @@ HEADERS += \
     beans/timeslot.h \
     beans/course.h \
     display/export.h \
-    datas/minimaldataset.h
+    datas/minimaldataset.h \
     beans/planning.h
 
