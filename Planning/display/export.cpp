@@ -21,6 +21,11 @@ Export* Export::run(){
     this->addContent(Period::jsonList()) ;
     this->addContent(";") ;
 
+    // Day
+    this->addContent("Data.Day=") ;
+    this->addContent(Day::jsonList()) ;
+    this->addContent(";") ;
+
     this->exec() ;
 }
 
