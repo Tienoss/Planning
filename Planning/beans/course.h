@@ -19,6 +19,8 @@ public:
     static vector<Course*> list;
 
     //Methodes
+    int getId();
+
     TimeSlot* getTimeslot();
     Course* setTimeslot(TimeSlot* timeSlot);
 
@@ -31,22 +33,6 @@ public:
 
     Teacher* getTeacher();
     Course* setTeacher(Teacher* teacher);
-
-    Promotion* getPromotion();
-    void setPromotion(Promotion* value);
-
-    Room* getRoom();
-    void setRoom(Room* value);
-
-    Teacher* getTeacher();
-    void setTeacher(Teacher* value);
-
-private:
-    int id;
-    Promotion* promotion;
-    Room* room;
-    TimeSlot* timeslot;
-    Teacher* teacher;
 };
 
 #endif // COURSE_H

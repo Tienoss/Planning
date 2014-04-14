@@ -7,6 +7,7 @@ Course::Course()
     this->id = list.size();
     Course::list.push_back(this);
 }
+int Course::getId(){return this->id;}
 
 TimeSlot* Course::getTimeslot(){return this->timeslot;}
 Course* Course::setTimeslot(TimeSlot* timeslot){this->timeslot = timeslot; return this;}

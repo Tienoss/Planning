@@ -7,37 +7,13 @@ Period::Period()
     this->id = list.size();
     Period::list.push_back(this);
 }
+int Period::getId(){return this->id;}
 
-int Period::getId() const
-{
-    return id;
-}
+int Period::getFrom(){return this->from;}
+Period* Period::setFrom(int from){this->from = from; return this;}
 
-void Period::setId(int value)
-{
-    id = value;
-}
-
-int Period::getFrom() const
-{
-    return from;
-}
-
-Period* Period::setFrom(int value)
-{
-    from = value; return(this) ;
-}
-
-int Period::getLength() const
-{
-    return length;
-}
-
-Period* Period::setLength(int value)
-{
-    length = value; return(this) ;
-}
-
+int Period::getLength(){return this->length;}
+Period* Period::setLength(int length){this->length = length; return this;}
 
 string Period::jsonList(){
     stringstream ret ; ret << "[" ;

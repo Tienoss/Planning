@@ -7,17 +7,20 @@ class Day
 {
 private:
     int id;
-    int name;
+    string name;
 
 public:
     Day();
 
     //Variables globales
     static vector<Day*> list;
+    static string jsonList() ;
 
     //Methodes
-    String getName();
-    Day* setName(String name);
+    int getId();
+    string getName();
+    Day* setName(string name);
+    string toJson() ;
 
 };
 
