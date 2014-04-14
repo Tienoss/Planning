@@ -12,7 +12,11 @@ SOURCES += main.cpp \
     beans/period.cpp \
     beans/timeslot.cpp \
     beans/course.cpp \
+<<<<<<< HEAD
     display/export.cpp
+=======
+    beans/planning.cpp
+>>>>>>> 375077cc72f7e35c3ab8edb8aa687709a7820da5
 
 HEADERS += \
     main.h \
@@ -24,5 +28,9 @@ HEADERS += \
     beans/period.h \
     beans/timeslot.h \
     beans/course.h \
+<<<<<<< HEAD
     display/export.h
+=======
+    beans/planning.h
+>>>>>>> 375077cc72f7e35c3ab8edb8aa687709a7820da5
 

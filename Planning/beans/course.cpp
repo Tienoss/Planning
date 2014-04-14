@@ -5,6 +5,7 @@ vector<Course*> Course::list;
 Course::Course()
 {
     this->id = list.size();
+    Course.list.push_back(this);
 }
 
 int Course::getId() const
@@ -45,4 +46,14 @@ TimeSlot* Course::getTimeslot()
 void Course::setTimeslot(TimeSlot* value)
 {
     timeslot = value;
+}
+
+Teacher Course::getTeacher() const
+{
+    return teacher;
+}
+
+void Course::setTeacher(const Teacher &value)
+{
+    teacher = value;
 }
