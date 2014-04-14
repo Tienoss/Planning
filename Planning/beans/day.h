@@ -5,6 +5,10 @@
 
 class Day
 {
+private:
+    int id;
+    int name;
+
 public:
     Day();
 
@@ -12,15 +16,9 @@ public:
     static vector<Day*> list;
 
     //Methodes
-    int getId() const;
-    void setId(int value);
+    String getName();
+    Day* setName(String name);
 
-    int getName() const;
-    void setName(int value);
-
-private:
-    int id;
-    int name;
 };
 
 #endif // DAY_H
