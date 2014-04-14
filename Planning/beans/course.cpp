@@ -5,55 +5,18 @@ vector<Course*> Course::list;
 Course::Course()
 {
     this->id = list.size();
-    Course.list.push_back(this);
+    Course::list.push_back(this);
 }
 
-int Course::getId() const
-{
-    return id;
-}
+TimeSlot* Course::getTimeslot(){return this->timeslot;}
+Course* Course::setTimeslot(TimeSlot* timeslot){this->timeslot = timeslot; return this;}
 
-void Course::setId(int value)
-{
-    id = value;
-}
+Promotion* Course::getPromotion(){return this->promotion;}
+Course* Course::setPromotion(Promotion* promotion){this->promotion = promotion; return this;}
 
-Promotion Course::getPromo() const
-{
-    return promo;
-}
+Room* Course::getRoom(){return this->room;}
+Course* Course::setRoom(Room* room){this->room = room; return this;}
 
-void Course::setPromo(const Promotion &value)
-{
-    promo = value;
-}
+Teacher* Course::getTeacher(){return this->teacher;}
+Course* Course::setTeacher(Teacher* teacher){this->teacher = teacher; return this;}
 
-Room Course::getRoom() const
-{
-    return room;
-}
-
-void Course::setRoom(const Room &value)
-{
-    room = value;
-}
-
-TimeSlot Course::getTimeSlot() const
-{
-    return timeslot;
-}
-
-void Course::setTimeSlot(const TimeSlot &value)
-{
-    timeslot = value;
-}
-
-Teacher Course::getTeacher() const
-{
-    return teacher;
-}
-
-void Course::setTeacher(const Teacher &value)
-{
-    teacher = value;
-}

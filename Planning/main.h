@@ -15,6 +15,16 @@
 
 using namespace std;
 
+class Course;
+class Promotion;
+class Room;
+class Teacher;
+class Day;
+class Period;
+class Week;
+class TimeSlot;
+
+#include "beans/course.h"
 #include "beans/promotion.h"
 #include "beans/room.h"
 #include "beans/teacher.h"
@@ -22,5 +32,6 @@ using namespace std;
 #include "beans/period.h"
 #include "beans/week.h"
 #include "beans/timeslot.h"
+
 
 #endif // MAIN_H

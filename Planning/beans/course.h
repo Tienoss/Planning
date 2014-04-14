@@ -5,6 +5,13 @@
 
 class Course
 {
+private:
+    int id;
+    Promotion* promotion;
+    Teacher* teacher;
+    Room* room;
+    TimeSlot* timeslot;
+
 public:
     Course();
 
@@ -12,27 +19,18 @@ public:
     static vector<Course*> list;
 
     //Methodes
-    TimeSlot getTimeslot() const;
-    void setTimeslot(const TimeSlot &value);
+    TimeSlot* getTimeslot();
+    Course* setTimeslot(TimeSlot* timeSlot);
 
-    int getId() const;
-    void setId(int value);
+    Promotion* getPromotion();
+    Course* setPromotion(Promotion* promotion);
 
-    Promotion getPromo() const;
-    void setPromo(const Promotion &value);
+    Room* getRoom();
+    Course* setRoom(Room* room);
 
-    Room getRoom() const;
-    void setRoom(const Room &value);
+    Teacher* getTeacher();
+    Course* setTeacher(Teacher* teacher);
 
-    Teacher getTeacher() const;
-    void setTeacher(const Teacher &value);
-
-private:
-    int id;
-    Promotion promo;
-    Teacher teacher;
-    Room room;
-    TimeSlot timeslot;
 };
 
 #endif // COURSE_H

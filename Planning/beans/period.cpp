@@ -5,7 +5,7 @@ vector<Period*> Period::list;
 Period::Period()
 {
     this->id = list.size();
-    Period.list.push_back(this);
+    Period::list.push_back(this);
 }
 
 int Period::getId() const
