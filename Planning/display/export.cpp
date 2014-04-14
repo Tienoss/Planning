@@ -26,6 +26,26 @@ Export* Export::run(){
     this->addContent(Day::jsonList()) ;
     this->addContent(";") ;
 
+    // Room
+    this->addContent("Data.Room=") ;
+    this->addContent(Room::jsonList()) ;
+    this->addContent(";") ;
+
+    // Teacher
+    this->addContent("Data.Teacher=") ;
+    this->addContent(Teacher::jsonList()) ;
+    this->addContent(";") ;
+
+    // Week
+    this->addContent("Data.Week=") ;
+    this->addContent(Week::jsonList()) ;
+    this->addContent(";") ;
+
+    // TimeSlot
+    this->addContent("Data.TimeSlot=") ;
+    this->addContent(TimeSlot::jsonList()) ;
+    this->addContent(";") ;
+
     this->exec() ;
 }
 

@@ -23,25 +23,26 @@ int Period::getFrom() const
     return from;
 }
 
-void Period::setFrom(int value)
+Period* Period::setFrom(int value)
 {
-    from = value;
+    from = value; return(this) ;
 }
+
 int Period::getLength() const
 {
     return length;
 }
 
-void Period::setLength(int value)
+Period* Period::setLength(int value)
 {
-    length = value;
+    length = value; return(this) ;
 }
 
 
 string Period::jsonList(){
     stringstream ret ; ret << "[" ;
     for(int i = 0 ; i < Period::list.size() ; i++)
-        ret << Period::list[i]->toJson() << "," ;
+        ret << ((i>0)?",":"") << Period::list[i]->toJson() ;
     ret << "]" ; return(ret.str()) ;
 }
 
@@ -49,7 +50,7 @@ string Period::toJson(){
     stringstream ret ; ret << "{" ;
     ret << "id:" << this->getId() << "," ;
     ret << "from:" << this->getFrom() << "," ;
-    ret << "length:" << this->getLength() << "," ;
+    ret << "length:" << this->getLength() ;
     ret << "}" ; return(ret.str()) ;
 }
 

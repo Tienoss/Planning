@@ -24,8 +24,8 @@ public:
     Room* getRoom();
     void setRoom(Room* value);
 
-    Teacher getTeacher() const;
-    void setTeacher(const Teacher &value);
+    Teacher* getTeacher();
+    void setTeacher(Teacher* value);
 
 private:
     int id;

@@ -10,17 +10,20 @@ public:
 
     //Variables globales
     static vector<Day*> list;
+    static string jsonList() ;
 
     //Methodes
     int getId() const;
     void setId(int value);
 
-    int getName() const;
-    void setName(int value);
+    string getName() ;
+    Day* setName(string value);
+
+    string toJson() ;
 
 private:
     int id;
-    int name;
+    string name;
 };
 
 #endif // DAY_H

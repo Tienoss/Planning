@@ -26,4 +26,6 @@ using namespace std;
 
 #include "display/export.h"
 
+#include "datas/minimaldataset.h"
+
 #endif // MAIN_H

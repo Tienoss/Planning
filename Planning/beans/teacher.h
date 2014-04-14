@@ -14,11 +14,15 @@ public:
 
     //Variables globales
     static vector<Teacher*> list;
+    static string jsonList() ;
 
     //Methodes
     int getId();
+
     string getName();
-    void setName(string name);
+    Teacher* setName(string name);
+
+    string toJson() ;
 };
 
 #endif // TEACHER_H

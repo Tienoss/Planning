@@ -14,11 +14,13 @@ public:
 
     //Variables globales
     static vector<Room*> list;
+    static string jsonList() ;
 
     //Methodes
     int getId();
     string getName();
-    void setName(string name);
+    Room* setName(string name);
+    string toJson() ;
 };
 
 #endif // ROOM_H

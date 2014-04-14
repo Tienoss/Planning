@@ -17,10 +17,10 @@ public:
     void setId(int value);
 
     int getFrom() const;
-    void setFrom(int value);
+    Period* setFrom(int value);
 
     int getLength() const;
-    void setLength(int value);
+    Period* setLength(int value);
 
     string toJson() ;
 

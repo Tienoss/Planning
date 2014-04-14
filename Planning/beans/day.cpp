@@ -17,14 +17,29 @@ void Day::setId(int value)
 {
     id = value;
 }
-int Day::getName() const
+
+string Day::getName()
 {
     return name;
 }
 
-void Day::setName(int value)
+Day* Day::setName(string value)
 {
-    name = value;
+    name = value; return(this) ;
+}
+
+string Day::jsonList(){
+    stringstream ret ; ret << "[" ;
+    for(int i = 0 ; i < Day::list.size() ; i++)
+        ret << ((i>0)?",":"") << Day::list[i]->toJson() ;
+    ret << "]" ; return(ret.str()) ;
+}
+
+string Day::toJson(){
+    stringstream ret ; ret << "{" ;
+    ret << "id:" << this->getId() << "," ;
+    ret << "name:\"" << this->getName() << "\"" ;
+    ret << "}" ; return(ret.str()) ;
 }
 
 
