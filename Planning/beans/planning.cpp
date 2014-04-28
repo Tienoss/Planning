@@ -2,7 +2,7 @@
 
 
 // Static
-vector<Planning*> Planning::list;
+QVector<Planning*> Planning::list;
 Planning* Planning::instance = new Planning() ;
 Planning* Planning::getInstance(){return Planning::instance;}
 

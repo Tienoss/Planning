@@ -14,7 +14,7 @@ public:
     Period();
 
     // Static
-    static vector<Period*> list;
+    static QVector<Period*> list;
     static string jsonList() ;
 
     //Methodes

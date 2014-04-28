@@ -16,7 +16,7 @@ public:
     Course();
 
     //Variables globales
-    static vector<Course*> list;
+    static QVector<Course*> list;
 
     //Methodes
     int getId();
