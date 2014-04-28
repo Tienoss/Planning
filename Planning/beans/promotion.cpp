@@ -1,6 +1,6 @@
 #include "../main.h"
 
-vector<Promotion*> Promotion::list;
+QVector<Promotion*> Promotion::list;
 
 Promotion::Promotion()
 {

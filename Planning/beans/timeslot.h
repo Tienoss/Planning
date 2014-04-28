@@ -16,8 +16,9 @@ public:
     TimeSlot();
 
     //Variables globales
-    static vector<TimeSlot*> list;
+    static QVector<TimeSlot*> list;
     static string jsonList() ;
+    static void generate() ;
 
     //Methodes
     int getId() ;

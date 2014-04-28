@@ -13,7 +13,7 @@ public:
     Day();
 
     //Variables globales
-    static vector<Day*> list;
+    static QVector<Day*> list;
     static string jsonList() ;
 
     //Methodes

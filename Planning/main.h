@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <vector>
+
 #include <iostream>
 #include <algorithm>
 #include <numeric>
@@ -15,6 +15,9 @@
 #include <windows.h>
 #include <unistd.h>
 #include <stdlib.h>
+
+#include <QVector>
+
 
 using namespace std;
 
