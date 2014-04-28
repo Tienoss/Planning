@@ -6,9 +6,8 @@ Intelligence::Intelligence()
 }
 
 void Intelligence::run(){
-
     //generation d'une entité au hasard au début, orientée à la fin pour diminuer les temps de calcul
-
+    new Course();
     //On définit un température initiale
 
     //Tant que la température initiale (T) > 0
