@@ -24,7 +24,9 @@ SOURCES += main.cpp\
     beans/teacher.cpp \
     beans/timeslot.cpp \
     beans/week.cpp \
-    display/export.cpp
+    display/export.cpp \
+    intelligence/parameters.cpp \
+    intelligence/intelligence.cpp
 
 HEADERS  += window.h \
     datas/minimaldataset.h \
@@ -38,6 +40,8 @@ HEADERS  += window.h \
     beans/timeslot.h \
     beans/week.h \
     display/export.h \
-    main.h
+    main.h \
+    intelligence/parameters.h \
+    intelligence/intelligence.h
 
 FORMS    += window.ui
