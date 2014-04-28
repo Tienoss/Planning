@@ -1,25 +1,28 @@
 #ifndef PLANNING_H
 #define PLANNING_H
 
+#include "../main.h"
+
 class Planning
 {
+private:
+    int id;
+    int score;
+    static Planning* instance ;
+
 public:
     Planning();
 
     //Variables globales
     static vector<Planning*> list;
+    static Planning* getInstance() ;
 
     //Methodes
+    int getId();
+    Planning* setScore(int score);
+    int getScore();
 
-    int getId() const;
-    void setId(int value);
-
-    int getScore() const;
-    void setScore(int value);
-
-private:
-    int id;
-    int score;
+    int evaluate();
 };
 
 #endif // PLANNING_H

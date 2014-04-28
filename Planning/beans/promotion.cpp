@@ -2,8 +2,6 @@
 
 vector<Promotion*> Promotion::list;
 
-
-
 Promotion::Promotion()
 {
     this->id = list.size();
@@ -11,9 +9,7 @@ Promotion::Promotion()
 }
 int Promotion::getId(){ return(this->id); }
 string Promotion::getName(){ return(this->name); }
-void Promotion::setName(string name){ this->name = name ;}
-
-
+Promotion* Promotion::setName(string name){ this->name = name ; return this;}
 
 string Promotion::jsonList(){
     stringstream ret ; ret << "[" ;
@@ -21,7 +17,6 @@ string Promotion::jsonList(){
         ret << ((i>0)?",":"") << Promotion::list[i]->toJson() ;
     ret << "]" ; return(ret.str()) ;
 }
-
 
 string Promotion::toJson(){
     stringstream ret ; ret << "{" ;

@@ -1,30 +1,18 @@
 #include "../main.h"
 
+
+// Static
 vector<Planning*> Planning::list;
+Planning* Planning::instance = new Planning() ;
+Planning* Planning::getInstance(){return Planning::instance;}
 
-Planning::Planning()
-{
-    this->id = list.size();
-    Planning.list.push_back(this);
+// Instance
+Planning::Planning(){
+
 }
 
-int Planning::getId() const
-{
-    return id;
-}
+int Planning::getId(){return this->id;}
 
-void Planning::setId(int value)
-{
-    id = value;
-}
-int Planning::getScore() const
-{
-    return score;
-}
-
-void Planning::setScore(int value)
-{
-    score = value;
-}
-
+int Planning::getScore(){return this->score;}
+Planning* Planning::setScore(int score){this->score = score; return this;}
 

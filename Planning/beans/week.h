@@ -5,6 +5,10 @@
 
 class Week
 {
+private:
+    int id;
+    string name;
+
 public:
     Week();
 
@@ -13,17 +17,12 @@ public:
     static string jsonList() ;
 
     //Methodes
-    int getId() const;
-    void setId(int value);
+    int getId();
 
-    int getName() const;
-    void setName(int value);
+    string getName();
+    Week* setName(string name);
 
     string toJson() ;
-
-private:
-    int id;
-    int name;
 };
 
 #endif // WEEK_H

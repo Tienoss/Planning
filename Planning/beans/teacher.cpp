@@ -9,7 +9,7 @@ Teacher::Teacher()
 }
 int Teacher::getId(){ return(this->id); }
 string Teacher::getName(){ return(this->name); }
-Teacher* Teacher::setName(string name){this->name = name ; return(this) ; }
+Teacher* Teacher::setName(string name){this->name = name; return this; }
 
 string Teacher::jsonList(){
     stringstream ret ; ret << "[" ;
