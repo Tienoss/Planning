@@ -8,16 +8,19 @@ class Planning
 private:
     int id;
     int score;
-    static Planning instance = new Planning();
+    static Planning* instance ;
+
 public:
     Planning();
 
     //Variables globales
     static vector<Planning*> list;
+    static Planning* getInstance() ;
 
     //Methodes
     int getId();
     Planning* setScore(int score);
+    int getScore();
 
     int evaluate();
 };

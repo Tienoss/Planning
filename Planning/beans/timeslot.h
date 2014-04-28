@@ -5,6 +5,13 @@
 
 class TimeSlot
 {
+
+private:
+    int id;
+    Week* week;
+    Day* day;
+    Period* period;
+
 public:
     TimeSlot();
 
@@ -13,25 +20,20 @@ public:
     static string jsonList() ;
 
     //Methodes
-    int getId() const;
-    void setId(int value);
+    int getId() ;
 
     Week* getWeek();
-    void setWeek(Week* value);
+    TimeSlot* setWeek(Week* week);
 
     Day* getDay();
-    void setDay(Day* value);
+    TimeSlot* setDay(Day* day);
 
     Period* getPeriod();
-    void setPeriod(Period* value);
+    TimeSlot* setPeriod(Period* period);
 
     string toJson() ;
 
-private:
-    int id;
-    Week* week;
-    Day* day;
-    Period* period;
+
 };
 
 #endif // TIMESLOT_H

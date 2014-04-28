@@ -47,6 +47,7 @@ Export* Export::run(){
     this->addContent(";") ;
 
     this->exec() ;
+    return(this) ;
 }
 
 Export* Export::createFiles(){
@@ -55,5 +56,11 @@ Export* Export::createFiles(){
 
 Export* Export::exec(){
     cout << this->content ;
+    Export::launchBrowser("file://C:/test.html") ;
+    return(this) ;
+}
+
+Export* Export::launchBrowser(const std::string &url){
+
 }
 

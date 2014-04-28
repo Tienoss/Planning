@@ -12,6 +12,9 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
+#include <windows.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 using namespace std;
 

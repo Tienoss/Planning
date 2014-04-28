@@ -18,6 +18,7 @@ public:
     Export* addContent(string content) ;
     Export* createFiles() ;
     Export* exec() ;
+    Export* launchBrowser(const std::string &url) ;
 };
 
 #endif // EXPORT_H
