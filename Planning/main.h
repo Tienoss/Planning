@@ -54,7 +54,6 @@ class TimeSlot;
 #include "intelligence/parameters.h"
 
 #include "display/export.h"
-#include "display/window.h"
 
 #include "datas/minimaldataset.h"
 
