@@ -1,7 +1,7 @@
 #include "../main.h"
 
 // Static
-QVector<TimeSlot*> TimeSlot::list;
+QList<TimeSlot*> TimeSlot::list;
 void TimeSlot::generate(){
     for(int w = 0 ; w < Week::list.size() ; w++){
         for(int d = 0 ; d < Day::list.size() ; d++){

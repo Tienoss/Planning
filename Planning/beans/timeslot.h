@@ -16,7 +16,7 @@ public:
     TimeSlot();
 
     //Variables globales
-    static QVector<TimeSlot*> list;
+    static QList<TimeSlot*> list;
     static string jsonList() ;
     static void generate() ;
     static TimeSlot* pickUp();

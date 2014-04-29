@@ -16,8 +16,17 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include <QVector>
-
+#include <QApplication>
+#include <QList>
+#include <QTextEdit>
+#include <QFile>
+#include <QString>
+#include <QTextStream>
+#include <QDir>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QProcess>
+#include <QMainWindow>
 
 using namespace std;
 
@@ -44,6 +53,7 @@ class TimeSlot;
 #include "intelligence/parameters.h"
 
 #include "display/export.h"
+#include "display/window.h"
 
 #include "datas/minimaldataset.h"
 

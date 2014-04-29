@@ -13,7 +13,7 @@ public:
     Teacher();
 
     //Variables globales
-    static QVector<Teacher*> list;
+    static QList<Teacher*> list;
     static string jsonList() ;
     static Teacher* pickUp();
     static Teacher* getById(int id);

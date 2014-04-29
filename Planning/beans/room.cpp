@@ -1,6 +1,6 @@
 #include "../main.h"
 
-QVector<Room*> Room::list;
+QList<Room*> Room::list;
 
 Room::Room()
 {

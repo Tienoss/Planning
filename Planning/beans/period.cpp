@@ -1,6 +1,6 @@
 #include "../main.h"
 
-QVector<Period*> Period::list;
+QList<Period*> Period::list;
 
 Period::Period()
 {

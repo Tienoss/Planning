@@ -1,6 +1,6 @@
 #include "../main.h"
 
-QVector<Week*> Week::list;
+QList<Week*> Week::list;
 
 Week::Week()
 {

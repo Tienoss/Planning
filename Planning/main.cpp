@@ -1,11 +1,18 @@
 #include "main.h"
 
-int main()
+int main(int argc, char *argv[])
 {
+    QApplication a(argc, argv);
+
     MinimalDataSet::load() ;
     TimeSlot::generate() ;
+
     Export::getInstance()->run() ;
-    Intelligence::run();
-    return 0;
+
+    //Window w;
+    //w.show();
+
+    return a.exec();
+
 }
 
