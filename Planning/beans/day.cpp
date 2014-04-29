@@ -32,7 +32,7 @@ Day* Day::pickUp(){
 }
 
 Day* Day::getById(int id){
-    QVector<Day*> list = Day::list ;
+    QList<Day*> list = Day::list ;
     for( int i = 0 ; i < list.size() ; i++){
         Day* day = list[i] ;
         if(day->getId() == id) return(day) ;

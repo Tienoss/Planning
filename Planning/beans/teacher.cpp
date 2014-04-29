@@ -32,7 +32,7 @@ Teacher* Teacher::pickUp(){
 }
 
 Teacher* Teacher::getById(int id){
-    QVector<Teacher*> list = Teacher::list ;
+    QList<Teacher*> list = Teacher::list ;
     for( int i = 0 ; i < list.size() ; i++){
         Teacher* teacher = list[i] ;
         if(teacher->getId() == id) return(teacher) ;

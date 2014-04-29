@@ -34,7 +34,7 @@ Promotion* Promotion::pickUp(){
 }
 
 Promotion* Promotion::getById(int id){
-    QVector<Promotion*> list = Promotion::list ;
+    QList<Promotion*> list = Promotion::list ;
     for( int i = 0 ; i < list.size() ; i++){
         Promotion* promotion = list[i] ;
         if(promotion->getId() == id) return(promotion) ;

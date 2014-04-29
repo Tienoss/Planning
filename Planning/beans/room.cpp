@@ -33,7 +33,7 @@ Room* Room::pickUp(){
 }
 
 Room* Room::getById(int id){
-    QVector<Room*> list = Room::list ;
+    QList<Room*> list = Room::list ;
     for( int i = 0 ; i < list.size() ; i++){
         Room* room = list[i] ;
         if(room->getId() == id) return(room) ;

@@ -35,7 +35,7 @@ Week* Week::pickUp(){
 }
 
 Week* Week::getById(int id){
-    QVector<Week*> list = Week::list ;
+    QList<Week*> list = Week::list ;
     for( int i = 0 ; i < list.size() ; i++){
         Week* week = list[i] ;
         if(week->getId() == id) return(week) ;
