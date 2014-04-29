@@ -13,7 +13,7 @@ public:
     Week();
 
     //Variables globales
-    static QVector<Week*> list;
+    static QList<Week*> list;
     static string jsonList() ;
 
     //Methodes

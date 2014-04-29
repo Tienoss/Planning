@@ -8,17 +8,23 @@ class Export
 
 private:
     Export();
+    string urlHtml ;
+    string urlJs ;
+    string content ;
 
 public:
     static Export* instance ;
     static Export* getInstance() ;
 
-    string content ;
     Export* run() ;
+
     Export* addContent(string content) ;
+    Export* exportContent() ;
+
     Export* createFiles() ;
-    Export* exec() ;
-    Export* launchBrowser(const std::string &url) ;
+
+    Export* openBrowser() ;
+
 };
 
 #endif // EXPORT_H

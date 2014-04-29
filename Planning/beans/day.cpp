@@ -1,6 +1,6 @@
 #include "../main.h"
 
-QVector<Day*> Day::list;
+QList<Day*> Day::list;
 
 Day::Day()
 {

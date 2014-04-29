@@ -13,7 +13,7 @@ public:
     Room();
 
     //Variables globales
-    static QVector<Room*> list;
+    static QList<Room*> list;
     static string jsonList() ;
 
     //Methodes
