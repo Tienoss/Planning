@@ -19,6 +19,8 @@ public:
     static QList<TimeSlot*> list;
     static string jsonList() ;
     static void generate() ;
+    static TimeSlot* pickUp();
+    static TimeSlot* getById(int id);
 
     //Methodes
     int getId() ;

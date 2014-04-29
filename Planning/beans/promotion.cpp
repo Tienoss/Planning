@@ -24,5 +24,20 @@ string Promotion::toJson(){
     stringstream ret ; ret << "{" ;
     ret << "id:" << this->getId() << "," ;
     ret << "name:\"" << this->getName() << "\"" ;
-    ret << "}" ; return(ret.str()) ;
+    ret << "}" ; return(ret.str());
+}
+
+Promotion* Promotion::pickUp(){
+    int limit = Promotion::list.size();
+    int id = Parameters::randomInt(0, limit);
+    return Promotion::getById(id);
+}
+
+Promotion* Promotion::getById(int id){
+    QVector<Promotion*> list = Promotion::list ;
+    for( int i = 0 ; i < list.size() ; i++){
+        Promotion* promotion = list[i] ;
+        if(promotion->getId() == id) return(promotion) ;
+    }
+    return(NULL) ;
 }

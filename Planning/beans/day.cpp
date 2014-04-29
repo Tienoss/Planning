@@ -25,3 +25,17 @@ string Day::toJson(){
     ret << "}" ; return(ret.str()) ;
 }
 
+Day* Day::pickUp(){
+    int limit = Day::list.size();
+    int id = Parameters::randomInt(0, limit);
+    return Day::getById(id);
+}
+
+Day* Day::getById(int id){
+    QVector<Day*> list = Day::list ;
+    for( int i = 0 ; i < list.size() ; i++){
+        Day* day = list[i] ;
+        if(day->getId() == id) return(day) ;
+    }
+    return(NULL) ;
+}
