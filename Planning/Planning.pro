@@ -16,6 +16,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         datas/minimaldataset.cpp \
+    datas/minimaldataset.cpp \
     beans/course.cpp \
     beans/day.cpp \
     beans/period.cpp \
@@ -29,7 +30,7 @@ SOURCES += main.cpp\
     intelligence/parameters.cpp \
     intelligence/intelligence.cpp
 
-HEADERS  += datas/minimaldataset.h \
+HEADERS  +=  datas/minimaldataset.h \
     beans/course.h \
     beans/day.h \
     beans/period.h \
@@ -43,6 +44,5 @@ HEADERS  += datas/minimaldataset.h \
     main.h \
     intelligence/parameters.h \
     intelligence/intelligence.h
-
 RESOURCES += \
     Resources.qrc
