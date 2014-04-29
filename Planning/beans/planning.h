@@ -23,6 +23,7 @@ public:
     Planning* setScore(int score);
     int getScore();
     QList<Course*> getListCourse();
+    Planning* setListCourse(QList<Course*> listCourse);
     Planning* fromRandom();
     Planning* from(Planning* planning);
     Planning* evaluate();
