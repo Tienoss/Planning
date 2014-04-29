@@ -8,14 +8,12 @@ class Planning
 private:
     int id;
     int score;
-    static Planning* instance ;
 
 public:
     Planning();
 
     //Variables globales
     static QList<Planning*> list;
-    static Planning* getInstance() ;
 
     //Methodes
     int getId();
@@ -23,6 +21,7 @@ public:
     int getScore();
 
     int evaluate();
+
 };
 
 #endif // PLANNING_H

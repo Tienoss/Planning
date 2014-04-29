@@ -57,6 +57,11 @@ Export* Export::exportContent(){
     this->addContent(TimeSlot::jsonList()) ;
     this->addContent(";") ;
 
+    // Course
+    this->addContent("Data.Course=") ;
+    //this->addContent(Planning::list[0]->coursesJsonList()) ;
+    this->addContent(";") ;
+
     return(this) ;
 }
 

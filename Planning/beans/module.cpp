@@ -15,5 +15,5 @@ Module* Module::setPromotion(Promotion* promotion){this->promotion = promotion; 
 Teacher* Module::getTeacher(){return this->teacher;}
 Module* Module::setTeacher(Teacher* teacher){this->teacher = teacher; return this;}
 
-float Module::getNumberHours(){return this->numberHours;}
-Module* Module::setNumberHours(float numberHours){ this->numberHours = numberHours ; return(this) ; }
+float Module::getDuration(){return this->duration;}
+Module* Module::setDuration(float duration){ this->duration = duration ; return(this) ; }
