@@ -16,7 +16,7 @@ public:
 
     //Variables globales
     static QList<Planning*> list;
-    static Planning* getInstance() ;
+
 
     //Methodes
     int getId();
@@ -28,6 +28,7 @@ public:
     Planning* from(Planning* planning);
     Planning* evaluate();
     Planning* makeChange();
+
 };
 
 #endif // PLANNING_H

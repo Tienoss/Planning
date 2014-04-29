@@ -9,7 +9,7 @@ private:
     int id;
     Promotion* promotion;
     Teacher* teacher;
-    float numberHours;
+    float duration;
 
 public:
     Module();
@@ -26,8 +26,8 @@ public:
     Teacher* getTeacher();
     Module* setTeacher(Teacher* teacher);
 
-    float getNumberHours();
-    Module* setNumberHours(float numberHours) ;
+    float getDuration();
+    Module* setDuration(float duration) ;
 };
 
 #endif // MODULE_H

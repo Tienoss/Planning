@@ -3,8 +3,6 @@
 
 // Static
 QList<Planning*> Planning::list;
-Planning* Planning::instance = new Planning() ;
-Planning* Planning::getInstance(){return Planning::instance;}
 
 // Instance
 Planning::Planning(){

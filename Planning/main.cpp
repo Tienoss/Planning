@@ -7,7 +7,10 @@ int main(int argc, char *argv[])
     MinimalDataSet::load() ;
     TimeSlot::generate() ;
 
+    Intelligence::run() ;
+
     Export::getInstance()->run() ;
+
 
     //Window w;
     //w.show();
