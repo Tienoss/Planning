@@ -57,7 +57,7 @@ TimeSlot* TimeSlot::pickUp(){
 }
 
 TimeSlot* TimeSlot::getById(int id){
-    QVector<TimeSlot*> list = TimeSlot::list ;
+    QList<TimeSlot*> list = TimeSlot::list ;
     for( int i = 0 ; i < list.size() ; i++){
         TimeSlot* timeslot = list[i] ;
         if(timeslot->getId() == id) return(timeslot) ;

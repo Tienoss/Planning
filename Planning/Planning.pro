@@ -16,7 +16,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         datas/minimaldataset.cpp \
-    datas/minimaldataset.cpp \
     beans/course.cpp \
     beans/day.cpp \
     beans/period.cpp \
