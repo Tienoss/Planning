@@ -2,10 +2,10 @@
 
 void MinimalDataSet::load(){
     // Promotion
-    (new Promotion())->setName("Promotion 1");
+    Promotion* p = (new Promotion())->setName("Promotion 1");
 
     // Teacher
-    (new Teacher())->setName("Prof 1");
+    Teacher* t = (new Teacher())->setName("Prof 1");
 
     // Room
     (new Room())->setName("Room 1");
@@ -16,4 +16,7 @@ void MinimalDataSet::load(){
     (new Day())->setName("Day 1");
     // Period
     (new Period())->setFrom(480)->setLength(120);
+
+    // Module
+    (new Module())->setTeacher(t)->setPromotion(p)->setNumberHours(2) ;
 }
