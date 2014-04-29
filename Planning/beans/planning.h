@@ -15,12 +15,16 @@ public:
     //Variables globales
     static QList<Planning*> list;
 
+
     //Methodes
     int getId();
     Planning* setScore(int score);
     int getScore();
 
-    int evaluate();
+    Planning* fromRandom();
+    Planning* from(Planning* planning);
+    Planning* evaluate();
+    Planning* makeChange();
 
 };
 

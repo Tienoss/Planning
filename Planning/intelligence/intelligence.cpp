@@ -6,48 +6,36 @@ Intelligence::Intelligence()
 }
 
 void Intelligence::run(){
+
     if(!Intelligence::checkDatas()){
-        cout << "Impossible de créer un planning !" ;
+        cout << "Impossible de cr�er un planning !" ;
         return ;
     }
-
-
-    //generation d'une entité au hasard au début, orientée à la fin pour diminuer les temps de calcul
-    Course* c1 = new Course();
-    c1
-            ->setPromotion(Promotion::getById(0))
-            ->setTeacher(Teacher::getById(0))
-            ->setRoom(Room::getById(0))
-            ->setTimeslot(TimeSlot::getById(0)) ;
-    //On définit un température initiale
     float tempInit = Parameters::getTemperatureInitiale();
-    Promotion* p1 = new Promotion();
+    (new Planning())->fromRandom()->evaluate();
 
-    //Tant que la température initiale (T) > 0
-
-    //Promotion::pickUp();
-
-    /*
     while(tempInit > 0){
-    }
-    */
-        //On génère une seconde entité ayant une caractéristique de modifiée (à partir de la première)
-        //On l’évalue (via une fonction d’évaluation)
-        //Si meilleure solution on la garde, sinon probabilité en fonction de T d’être gardée
-        //Décrémenter T
-    //FinTantQue
+        (new Planning())->from(Planning::list.first())->makeChange()->evaluate();
 
+        if(Planning::list.first()->getScore() < Planning::list.last()->getScore()){
+            Planning::list[0] = Planning::list.last();
+            Planning::list.removeLast();
+        }
+        else{
+		}
+		tempInit -= Parameters::getTemperatureDecrement();
+   }
 
 }
 
 bool Intelligence::checkDatas(){
-    cout << "Vérification de la cohérance des données" << endl << endl ;
+    cout << "V�rification de la coh�rance des donn�es" << endl << endl ;
 
-    cout << "1. Vérification du nombre total d'heures à placer et du nombre total d'heures disponibles" << endl ;
+    cout << "1. V�rification du nombre total d'heures � placer et du nombre total d'heures disponibles" << endl ;
     float planified = 0 ;
     for(int i = 0 ; i < Module::list.size() ; i++)
         planified += Module::list[i]->getDuration() ;
-    cout << planified << " minutes à placer" << endl ;
+    cout << planified << " minutes � placer" << endl ;
     float available = 0 ;
     for(int i = 0 ; i < TimeSlot::list.size() ; i++)
         available += TimeSlot::list[i]->getPeriod()->getLength() ;
