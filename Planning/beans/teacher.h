@@ -15,6 +15,8 @@ public:
     //Variables globales
     static QList<Teacher*> list;
     static string jsonList() ;
+    static Teacher* pickUp();
+    static Teacher* getById(int id);
 
     //Methodes
     int getId();
