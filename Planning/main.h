@@ -40,6 +40,7 @@ class TimeSlot;
 #include "beans/timeslot.h"
 #include "beans/course.h"
 #include "beans/planning.h"
+#include "beans/module.h"
 #include "intelligence/intelligence.h"
 #include "intelligence/parameters.h"
 
