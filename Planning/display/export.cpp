@@ -10,11 +10,13 @@ Export* Export::run(){
     this->exportContent() ;
     this->createFiles() ;
     this->openBrowser() ;
+    return 0;
 }
 
 
 Export* Export::addContent(string content){
     this->content.append(content) ;
+    return 0;
 }
 
 Export* Export::exportContent(){
@@ -76,6 +78,7 @@ Export* Export::createFiles(){
     jsDest.open(QIODevice::WriteOnly) ;
     jsDest.write(this->content.c_str()) ;
     jsDest.close();
+    return 0;
 }
 
 Export* Export::openBrowser(){
