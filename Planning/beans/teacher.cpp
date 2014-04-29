@@ -24,3 +24,18 @@ string Teacher::toJson(){
     ret << "name:\"" << this->getName() << "\"" ;
     ret << "}" ; return(ret.str()) ;
 }
+
+Teacher* Teacher::pickUp(){
+    int limit = Teacher::list.size();
+    int id = Parameters::randomInt(0, limit);
+    return Teacher::getById(id);
+}
+
+Teacher* Teacher::getById(int id){
+    QVector<Teacher*> list = Teacher::list ;
+    for( int i = 0 ; i < list.size() ; i++){
+        Teacher* teacher = list[i] ;
+        if(teacher->getId() == id) return(teacher) ;
+    }
+    return(NULL) ;
+}

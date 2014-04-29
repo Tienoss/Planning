@@ -15,6 +15,8 @@ public:
     //Variables globales
     static QVector<Room*> list;
     static string jsonList() ;
+    static Room* pickUp();
+    static Room* getById(int id);
 
     //Methodes
     int getId();

@@ -15,6 +15,8 @@ public:
     //Variables globales
     static QVector<Week*> list;
     static string jsonList() ;
+    static Week* pickUp();
+    static Week* getById(int id);
 
     //Methodes
     int getId();

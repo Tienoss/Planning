@@ -15,12 +15,15 @@ public:
     //Variables globales
     static QVector<Promotion*> list;
     static string jsonList() ;
+    static Promotion* pickUp();
+    static Promotion* getById(int id);
 
     //Methodes
     int getId();
     string getName();
     Promotion* setName(string name);
     string toJson() ;
+
 };
 
 #endif // PROMOTION_H

@@ -50,6 +50,19 @@ string TimeSlot::toJson(){
     ret << "}" ; return(ret.str()) ;
 }
 
+TimeSlot* TimeSlot::pickUp(){
+    int limit = TimeSlot::list.size();
+    int id = Parameters::randomInt(0, limit);
+    return TimeSlot::getById(id);
+}
 
+TimeSlot* TimeSlot::getById(int id){
+    QVector<TimeSlot*> list = TimeSlot::list ;
+    for( int i = 0 ; i < list.size() ; i++){
+        TimeSlot* timeslot = list[i] ;
+        if(timeslot->getId() == id) return(timeslot) ;
+    }
+    return(NULL) ;
+}
 
 
