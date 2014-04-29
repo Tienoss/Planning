@@ -2,10 +2,8 @@
 
 QVector<Module*> Module::list;
 
-Module::Module()
-{
+Module::Module(){
     this->id = list.size();
-    this->numberHours = 20;
     Module::list.push_back(this);
 }
 
@@ -18,3 +16,4 @@ Teacher* Module::getTeacher(){return this->teacher;}
 Module* Module::setTeacher(Teacher* teacher){this->teacher = teacher; return this;}
 
 float Module::getNumberHours(){return this->numberHours;}
+Module* Module::setNumberHours(float numberHours){ this->numberHours = numberHours ; return(this) ; }

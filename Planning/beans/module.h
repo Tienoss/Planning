@@ -27,6 +27,7 @@ public:
     Module* setTeacher(Teacher* teacher);
 
     float getNumberHours();
+    Module* setNumberHours(float numberHours) ;
 };
 
 #endif // MODULE_H
