@@ -6,25 +6,20 @@ Intelligence::Intelligence()
 }
 
 void Intelligence::run(){
-    //generation d'une entité au hasard au début, orientée à la fin pour diminuer les temps de calcul
-    Course* c1 = new Course();
-    //On définit un température initiale
     float tempInit = Parameters::getTemperatureInitiale();
-    Promotion* p1 = new Promotion();
+    (new Planning())->fromRandom()->evaluate();
 
-    //Tant que la température initiale (T) > 0
-
-    //Promotion::pickUp();
-
-    /*
     while(tempInit > 0){
-    }
-    */
-        //On génère une seconde entité ayant une caractéristique de modifiée (à partir de la première)
-        //On l’évalue (via une fonction d’évaluation)
-        //Si meilleure solution on la garde, sinon probabilité en fonction de T d’être gardée
-        //Décrémenter T
-    //FinTantQue
+        (new Planning())->from(Planning::list.first())->makeChange()->evaluate();
 
+        if(Planning::list.first()->getScore() < Planning::list.last()->getScore()){
+            Planning::list[0] = Planning::list.last();
+            Planning::list.removeLast();
+        }
+        else{
+
+        }
+        tempInit -= Parameters::getTemperatureDecrement();
+    }
 
 }

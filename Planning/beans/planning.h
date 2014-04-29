@@ -21,8 +21,10 @@ public:
     int getId();
     Planning* setScore(int score);
     int getScore();
-
-    int evaluate();
+    Planning* fromRandom();
+    Planning* from(Planning* planning);
+    Planning* evaluate();
+    Planning* makeChange();
 };
 
 #endif // PLANNING_H
