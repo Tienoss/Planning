@@ -46,6 +46,7 @@ class TimeSlot;
 #include "beans/day.h"
 #include "beans/period.h"
 #include "beans/week.h"
+#include "beans/module.h"
 #include "beans/timeslot.h"
 #include "beans/course.h"
 #include "beans/planning.h"
