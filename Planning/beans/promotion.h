@@ -13,7 +13,7 @@ public:
     Promotion();
 
     //Variables globales
-    static QVector<Promotion*> list;
+    static QList<Promotion*> list;
     static string jsonList() ;
 
     //Methodes

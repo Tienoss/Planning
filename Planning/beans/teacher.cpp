@@ -1,6 +1,6 @@
 #include "../main.h"
 
-QVector<Teacher*> Teacher::list;
+QList<Teacher*> Teacher::list;
 
 Teacher::Teacher()
 {

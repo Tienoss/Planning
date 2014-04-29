@@ -14,7 +14,7 @@ public:
     Planning();
 
     //Variables globales
-    static QVector<Planning*> list;
+    static QList<Planning*> list;
     static Planning* getInstance() ;
 
     //Methodes

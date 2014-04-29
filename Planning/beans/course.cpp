@@ -1,6 +1,6 @@
 #include "../main.h"
 
-QVector<Course*> Course::list;
+QList<Course*> Course::list;
 
 Course::Course()
 {

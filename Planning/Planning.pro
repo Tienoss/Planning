@@ -9,11 +9,13 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Planning
+CONFIG   -= console
+
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        window.cpp \
+        display/window.cpp \
     datas/minimaldataset.cpp \
     beans/course.cpp \
     beans/day.cpp \
@@ -29,7 +31,7 @@ SOURCES += main.cpp\
     intelligence/intelligence.cpp \
     beans/module.cpp
 
-HEADERS  += window.h \
+HEADERS  += display/window.h \
     datas/minimaldataset.h \
     beans/course.h \
     beans/day.h \
@@ -46,4 +48,7 @@ HEADERS  += window.h \
     intelligence/intelligence.h \
     beans/module.h
 
-FORMS    += window.ui
+FORMS    += display/window.ui
+
+RESOURCES += \
+    Resources.qrc
