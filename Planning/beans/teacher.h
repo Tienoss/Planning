@@ -3,7 +3,7 @@
 
 #include "../main.h"
 
-class Teacher
+class Teacher : public QObject
 {
 private:
     int id;

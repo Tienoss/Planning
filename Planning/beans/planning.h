@@ -9,14 +9,15 @@ private:
     int id;
     int score;
     QList<Course*> listCourse;
-    static Planning* instance ;
 
 public:
     Planning();
 
     //Variables globales
-    static QList<Planning*> list;
+    static Planning* best;
+    static Planning* test;
 
+    QHash<QObject*, QHash<TimeSlot*, Course*> > courses;
 
     //Methodes
     int getId();
@@ -28,6 +29,7 @@ public:
     Planning* from(Planning* planning);
     Planning* evaluate();
     Planning* makeChange();
+    Planning* initialiseHash();
 
 };
 

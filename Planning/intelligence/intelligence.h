@@ -9,6 +9,7 @@ public:
     Intelligence();
     static void run();
     static bool checkDatas() ;
+    static void initialiseHashmaps();
 
 
 };

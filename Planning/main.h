@@ -27,6 +27,7 @@
 #include <QUrl>
 #include <QProcess>
 #include <QMainWindow>
+#include <QHash>
 
 using namespace std;
 

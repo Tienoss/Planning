@@ -3,7 +3,7 @@
 
 #include "../main.h"
 
-class Room
+class Room : public QObject
 {
 private:
     int id;
