@@ -2,18 +2,18 @@
 
 void MinimalDataSet::load(){
     // Promotion
-    Promotion* p = (new Promotion())->setName("Promotion 1");
+    Promotion* p = (new Promotion())->setName("Promotion1");
 
     // Teacher
-    Teacher* t = (new Teacher())->setName("Prof 1");
+    Teacher* t = (new Teacher())->setName("Prof1");
 
     // Room
-    (new Room())->setName("Room 1");
+    (new Room())->setName("Room1");
 
     // Week
-    (new Week())->setName("1");
+    (new Week())->setName("Week1");
     // Day
-    (new Day())->setName("Day 1");
+    (new Day())->setName("Day1");
     // Period
     (new Period())->setFrom(480)->setLength(120);
 
