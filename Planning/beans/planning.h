@@ -8,6 +8,8 @@ class Planning
 private:
     int id;
     int score;
+    QList<Course*> listCourse;
+    static Planning* instance ;
 
 public:
     Planning();
@@ -22,7 +24,8 @@ public:
     int getId();
     Planning* setScore(int score);
     int getScore();
-
+    QList<Course*> getListCourse();
+    Planning* setListCourse(QList<Course*> listCourse);
     Planning* fromRandom();
     Planning* from(Planning* planning);
     Planning* evaluate();
