@@ -15,6 +15,12 @@ int Planning::getId(){return this->id;}
 int Planning::getScore(){return this->score;}
 Planning* Planning::setScore(int score){this->score = score; return this;}
 
+QList<Course*> Planning::getListCourse(){
+    return this->listCourse;
+}
+Planning* Planning::setListCourse(QList<Course*> listCourse){this->listCourse = listCourse; return (this);
+}
+
 Planning* Planning::fromRandom(){
     return(this);
 }
