@@ -11,6 +11,7 @@ void Intelligence::run(){
         cout << "Impossible de créer un planning !" ;
         return ;
     }
+
     float tempInit = Parameters::getTemperatureInitiale();
     (new Planning())->fromRandom()->evaluate();
 
@@ -22,7 +23,7 @@ void Intelligence::run(){
             Planning::list.removeLast();
         }
         else{
-		}
+        }
 		tempInit -= Parameters::getTemperatureDecrement();
    }
 
