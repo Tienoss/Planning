@@ -17,3 +17,6 @@ Module* Module::setTeacher(Teacher* teacher){this->teacher = teacher; return thi
 
 float Module::getDuration(){return this->duration;}
 Module* Module::setDuration(float duration){ this->duration = duration ; return(this) ; }
+
+
+Module* Module::decrementDuration(float duration){ this->duration -= duration; return(this);}

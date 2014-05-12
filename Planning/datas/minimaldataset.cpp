@@ -18,5 +18,5 @@ void MinimalDataSet::load(){
     (new Period())->setFrom(480)->setLength(120);
 
     // Module
-    (new Module())->setTeacher(t)->setPromotion(p)->setDuration(120) ;
+    (new Module())->setTeacher(t)->setPromotion(p)->setDuration(240) ;
 }

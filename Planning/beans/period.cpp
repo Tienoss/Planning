@@ -31,7 +31,10 @@ string Period::toJson(){
 }
 
 
-
+string Period::toString(){
+    return QString::number(this->getFrom()).toStdString() + " - " +
+            QString::number(this->getFrom() + this->getLength()).toStdString();
+}
 
 
 

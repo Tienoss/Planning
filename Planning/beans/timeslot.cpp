@@ -65,4 +65,9 @@ TimeSlot* TimeSlot::getById(int id){
     return(NULL) ;
 }
 
+string TimeSlot::toString(){
+    return this->getWeek()->getName() +
+            " " + this->getDay()->getName() +
+            " " + this->getPeriod()->toString();
+}
 

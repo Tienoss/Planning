@@ -8,13 +8,15 @@ Intelligence::Intelligence()
 void Intelligence::run(){
     Planning* p1 = new Planning();
 
+
+    Intelligence::initialiseHashmaps();
+
+    p1->fromRandom();
+
     if(!Intelligence::checkDatas()){
         cout << "Impossible de créer un planning !" ;
         return ;
     }
-    Intelligence::initialiseHashmaps();
-
-
     /*
     float tempInit = Parameters::getTemperatureInitiale();
     (new Planning())->fromRandom()->evaluate();

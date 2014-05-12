@@ -11,13 +11,32 @@ int Planning::getId(){return this->id;}
 int Planning::getScore(){return this->score;}
 Planning* Planning::setScore(int score){this->score = score; return this;}
 
-QList<Course*> Planning::getListCourse(){
-    return this->listCourse;
-}
-Planning* Planning::setListCourse(QList<Course*> listCourse){this->listCourse = listCourse; return (this);
-}
-
 Planning* Planning::fromRandom(){
+   Course* course;
+
+    for(int i = 0; i < Module::list.size(); i++){
+        Module* module = Module::list[i];
+        while(module->getDuration() > 0)
+        {
+            course = new Course();
+            course->setPromotion(module->getPromotion());
+            course->setTeacher(module->getTeacher());
+            course->setTimeslot(this->getFreeTimeSlot(course->getPromotion(),
+                                                      course->getTeacher()));
+            course->setRoom(this->getFreeRoom(course->getTimeslot()));
+            if(this->courseIsPlannable(course)){
+                this->planCourse(course);
+                module->decrementDuration(course->getTimeslot()->getPeriod()->getLength());
+                cout << "Cours ajoute : " << endl;
+                course->log();
+
+            }else{
+                cout << "Cours non planifiable" << endl;
+                return NULL;
+            }
+        }
+    }
+
     return(this);
 }
 
@@ -65,4 +84,46 @@ bool Planning::courseIsPlannable(Course* course){
     return true;
 }
 
+TimeSlot* Planning::getFreeTimeSlot(QObject* q1){
 
+    for(int i = 0; i < TimeSlot::list.size(); i++){
+        TimeSlot* timeslot = TimeSlot::list[i];
+        if(courses[q1][timeslot] == NULL){
+            return timeslot;
+        }
+    }
+    return NULL;
+}
+
+TimeSlot* Planning::getFreeTimeSlot(QObject* q1, QObject* q2){
+
+    for(int i = 0; i < TimeSlot::list.size(); i++){
+        TimeSlot* timeslot = TimeSlot::list[i];
+        if(courses[q1][timeslot] == NULL && courses[q2][timeslot] == NULL){
+            return timeslot;
+        }
+    }
+    return NULL;
+}
+
+TimeSlot* Planning::getFreeTimeSlot(QObject* q1, QObject* q2, QObject* q3){
+
+    for(int i = 0; i < TimeSlot::list.size(); i++){
+        TimeSlot* timeslot = TimeSlot::list[i];
+        if(courses[q1][timeslot] == NULL && courses[q2][timeslot] == NULL && courses[q3][timeslot] == NULL){
+            return timeslot;
+        }
+    }
+    return NULL;
+}
+
+Room* Planning::getFreeRoom(TimeSlot* timeslot){
+
+    for(int i = 0; i < Room::list.size(); i++){
+        Room* room = Room::list[i];
+        if(courses[room][timeslot] == NULL){
+            return room;
+        }
+    }
+    return NULL;
+}

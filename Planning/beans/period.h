@@ -25,6 +25,8 @@ public:
     int getLength();
     Period* setLength(int length);
 
+    string toString();
+
     string toJson() ;
 };
 

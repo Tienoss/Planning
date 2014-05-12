@@ -20,3 +20,11 @@ Course* Course::setRoom(Room* room){this->room = room; return this;}
 
 Teacher* Course::getTeacher(){return this->teacher;}
 Course* Course::setTeacher(Teacher* teacher){this->teacher = teacher; return this;}
+
+Course* Course::log(){
+    cout << "Room : " + this->getRoom()->getName() << endl;
+    cout << "Promo : " + this->getPromotion()->getName() << endl;
+    cout << "Prof : " + this->getTeacher()->getName() << endl;
+    cout << "TimeSlot : " + this->getTimeslot()->toString() << endl;
+    return this;
+}

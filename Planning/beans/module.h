@@ -28,6 +28,7 @@ public:
 
     float getDuration();
     Module* setDuration(float duration) ;
+    Module* decrementDuration(float duration);
 };
 
 #endif // MODULE_H

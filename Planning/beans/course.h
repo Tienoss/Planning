@@ -33,6 +33,8 @@ public:
 
     Teacher* getTeacher();
     Course* setTeacher(Teacher* teacher);
+
+    Course* log();
 };
 
 #endif // COURSE_H

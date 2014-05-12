@@ -8,7 +8,6 @@ class Planning
 private:
     int id;
     int score;
-    QList<Course*> listCourse;
 
 public:
     Planning();
@@ -23,8 +22,6 @@ public:
     int getId();
     Planning* setScore(int score);
     int getScore();
-    QList<Course*> getListCourse();
-    Planning* setListCourse(QList<Course*> listCourse);
     Planning* fromRandom();
     Planning* from(Planning* planning);
     Planning* evaluate();
@@ -32,6 +29,10 @@ public:
     Planning* initialiseHash();
     void planCourse(Course* course);
     bool courseIsPlannable(Course* course);
+    TimeSlot* getFreeTimeSlot(QObject* q1);
+    TimeSlot* getFreeTimeSlot(QObject* q1, QObject* q2);
+    TimeSlot* getFreeTimeSlot(QObject* q1, QObject* q2, QObject* q3);
+    Room* getFreeRoom(TimeSlot* timeslot);
 };
 
 #endif // PLANNING_H

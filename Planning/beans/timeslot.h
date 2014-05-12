@@ -34,6 +34,8 @@ public:
     Period* getPeriod();
     TimeSlot* setPeriod(Period* period);
 
+    string toString();
+
     string toJson() ;
 
 
