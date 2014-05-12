@@ -6,11 +6,16 @@ Intelligence::Intelligence()
 }
 
 void Intelligence::run(){
+    Planning* p1 = new Planning();
 
     if(!Intelligence::checkDatas()){
         cout << "Impossible de créer un planning !" ;
         return ;
     }
+    Intelligence::initialiseHashmaps();
+
+
+    /*
     float tempInit = Parameters::getTemperatureInitiale();
     (new Planning())->fromRandom()->evaluate();
 
@@ -25,7 +30,7 @@ void Intelligence::run(){
 		}
 		tempInit -= Parameters::getTemperatureDecrement();
    }
-
+    */
 }
 
 bool Intelligence::checkDatas(){
@@ -48,4 +53,9 @@ bool Intelligence::checkDatas(){
     cout << "OK" << endl << endl ;
 
     return(true) ;
+}
+
+void Intelligence::initialiseHashmaps(){
+    Planning::best->initialiseHash();
+    Planning::test->initialiseHash();
 }

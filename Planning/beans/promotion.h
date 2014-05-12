@@ -3,7 +3,7 @@
 
 #include "../main.h"
 
-class Promotion
+class Promotion : public QObject
 {
 private:
     int id;
