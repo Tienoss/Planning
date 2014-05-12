@@ -31,7 +31,8 @@ public:
     Planning* evaluate();
     Planning* makeChange();
     Planning* initialiseHash();
-
+    void planCourse(Course* course);
+    bool courseIsPlannable(Course* course);
 };
 
 #endif // PLANNING_H
