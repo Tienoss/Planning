@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
     Intelligence::run() ;
 
-    //Export::getInstance()->run() ;
+    Export::getInstance()->run() ;
 
 
     //Window w;
