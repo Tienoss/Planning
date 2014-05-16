@@ -6,12 +6,15 @@ Intelligence::Intelligence()
 }
 
 void Intelligence::run(){
-    Planning* p1 = new Planning();
-
 
     Intelligence::initialiseHashmaps();
 
-    p1->fromRandom();
+    Planning* best = Planning::best;
+    Planning* test = Planning::test;
+
+    best->fromRandom() ;
+    test->from(best) ;
+    test->makeChange() ;
 
     if(!Intelligence::checkDatas()){
         cout << "Impossible de créer un planning !" ;

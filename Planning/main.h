@@ -57,5 +57,6 @@ class TimeSlot;
 #include "display/export.h"
 
 #include "datas/minimaldataset.h"
+#include "datas/mediumdataset1.h"
 
 #endif // MAIN_H

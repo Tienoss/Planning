@@ -27,12 +27,17 @@ public:
     Planning* evaluate();
     Planning* makeChange();
     Planning* initialiseHash();
-    void planCourse(Course* course);
+    Planning* planCourse(Course* course);
+    Planning* unplanCourse(Course* course) ;
+
     bool courseIsPlannable(Course* course);
     TimeSlot* getFreeTimeSlot(QObject* q1);
     TimeSlot* getFreeTimeSlot(QObject* q1, QObject* q2);
     TimeSlot* getFreeTimeSlot(QObject* q1, QObject* q2, QObject* q3);
     Room* getFreeRoom(TimeSlot* timeslot);
+
+    Course* pickUpExistingCourse() ;
+
 };
 
 #endif // PLANNING_H

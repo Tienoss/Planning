@@ -4,12 +4,14 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    MinimalDataSet::load() ;
+    srand(time(NULL));
+
+    MediumDataSet1::load() ;
     TimeSlot::generate() ;
 
     Intelligence::run() ;
 
-    Export::getInstance()->run() ;
+    //Export::getInstance()->run() ;
 
 
     //Window w;

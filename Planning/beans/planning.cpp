@@ -41,14 +41,63 @@ Planning* Planning::fromRandom(){
 }
 
 Planning* Planning::from(Planning* planning){
+    for (int ts=0; ts < TimeSlot::list.size(); ts++){
+        for(int p=0; p < Promotion::list.size(); p++)
+            this->courses[Promotion::list[p]][TimeSlot::list[ts]] = planning->courses[Promotion::list[p]][TimeSlot::list[ts]];
+
+        for(int r=0; r < Room::list.size(); r++)
+            this->courses[Room::list[r]][TimeSlot::list[ts]] = planning->courses[Room::list[r]][TimeSlot::list[ts]];
+
+        for(int t=0; t < Teacher::list.size(); t++)
+            this->courses[Teacher::list[t]][TimeSlot::list[ts]] = planning->courses[Teacher::list[t]][TimeSlot::list[ts]];
+    }
     return(this);
 }
 
+Course* Planning::pickUpExistingCourse(){
+    int nbCourses = 0 ;
+    for (int ts=0; ts < TimeSlot::list.size(); ts++) {
+        for(int p=0; p < Promotion::list.size(); p++) {
+            if(this->courses[Promotion::list[p]][TimeSlot::list[ts]] != NULL) nbCourses++ ;
+        }
+    }
+
+    int chosen = Parameters::randomInt(0,nbCourses-1) ;
+
+    for (int ts=0; ts < TimeSlot::list.size(); ts++) {
+        for(int p=0; p < Promotion::list.size(); p++) {
+            if(chosen == 0) return(this->courses[Promotion::list[p]][TimeSlot::list[ts]]) ;
+            chosen-- ;
+        }
+    }
+
+    return(NULL) ;
+}
+
 Planning* Planning::evaluate(){
+
     return(this);
 }
 
 Planning* Planning::makeChange(){
+    Course* sourceCourse = this->pickUpExistingCourse() ;
+
+    // Algo force 1 : On déplace le cours à un autre timeslot vide
+    TimeSlot* ts = this->getFreeTimeSlot(
+        sourceCourse->getPromotion(),
+        sourceCourse->getRoom(),
+        sourceCourse->getTeacher()
+    );
+    //on créé un cours qu'on essai de planifier
+    Course* destCourse= new Course();
+    destCourse->setPromotion(sourceCourse->getPromotion())
+            ->setRoom(sourceCourse->getRoom())
+            ->setTeacher(sourceCourse->getTeacher())
+            ->setTimeslot(ts);
+    if(this->courseIsPlannable(destCourse)){
+        this->planCourse(destCourse);
+        this->unplanCourse(sourceCourse);
+    }
     return(this);
 }
 
@@ -66,10 +115,18 @@ Planning* Planning::initialiseHash(){
     return(this);
 }
 
-void Planning::planCourse(Course* course){
+Planning* Planning::planCourse(Course* course){
     this->courses[course->getTeacher()][course->getTimeslot()] = course;
     this->courses[course->getPromotion()][course->getTimeslot()] = course;
     this->courses[course->getRoom()][course->getTimeslot()] = course;
+    return(this) ;
+}
+
+Planning* Planning::unplanCourse(Course* course){
+    this->courses[course->getTeacher()][course->getTimeslot()] = NULL;
+    this->courses[course->getPromotion()][course->getTimeslot()] = NULL;
+    this->courses[course->getRoom()][course->getTimeslot()] = NULL;
+    return(this) ;
 }
 
 bool Planning::courseIsPlannable(Course* course){

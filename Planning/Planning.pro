@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     display/export.cpp \
     intelligence/parameters.cpp \
     intelligence/intelligence.cpp \
-    beans/module.cpp
+    beans/module.cpp \
+    datas/mediumdataset1.cpp \
+    datas/mediumdataset2.cpp
 
 HEADERS  +=  datas/minimaldataset.h \
     beans/course.h \
@@ -44,6 +46,8 @@ HEADERS  +=  datas/minimaldataset.h \
     main.h \
     intelligence/parameters.h \
     intelligence/intelligence.h \
-    beans/module.h
+    beans/module.h \
+    datas/mediumdataset1.h \
+    datas/mediumdataset2.h
 RESOURCES += \
     Resources.qrc
