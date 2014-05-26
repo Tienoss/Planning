@@ -13,13 +13,14 @@ void Intelligence::run(){
     Planning* test = Planning::test;
 
     best->fromRandom() ;
+    best->log();
     test->from(best) ;
     test->makeChange() ;
-
-    if(!Intelligence::checkDatas()){
+    test->log();
+    /*if(!Intelligence::checkDatas()){
         cout << "Impossible de créer un planning !" ;
         return ;
-    }
+    }*/
     /*
     float tempInit = Parameters::getTemperatureInitiale();
     (new Planning())->fromRandom()->evaluate();
@@ -41,7 +42,7 @@ void Intelligence::run(){
 bool Intelligence::checkDatas(){
     cout << "Vérification de la cohérance des données" << endl << endl ;
 
-    cout << "1. Vérification du nombre total d'heures à placer et du nombre total d'heures disponibles" << endl ;
+    //cout << "1. Vérification du nombre total d'heures à placer et du nombre total d'heures disponibles" << endl ;
     float planified = 0 ;
     for(int i = 0 ; i < Module::list.size() ; i++)
         planified += Module::list[i]->getDuration() ;

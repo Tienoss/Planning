@@ -27,9 +27,8 @@ Planning* Planning::fromRandom(){
             if(this->courseIsPlannable(course)){
                 this->planCourse(course);
                 module->decrementDuration(course->getTimeslot()->getPeriod()->getLength());
-                cout << endl << "Cours ajoute : " << endl;
-                course->log();
-
+                cout << "Cours ajoute -- ";
+                //course->log();
             }else{
                 cout << "Cours non planifiable" << endl;
                 return NULL;
@@ -97,6 +96,9 @@ Planning* Planning::makeChange(){
     if(this->courseIsPlannable(destCourse)){
         this->planCourse(destCourse);
         this->unplanCourse(sourceCourse);
+        cout << "---------------------------" << endl;
+        cout << "Cours change -- ";
+        destCourse->log();
     }
     return(this);
 }
@@ -127,6 +129,17 @@ Planning* Planning::unplanCourse(Course* course){
     this->courses[course->getPromotion()][course->getTimeslot()] = NULL;
     this->courses[course->getRoom()][course->getTimeslot()] = NULL;
     return(this) ;
+}
+
+Planning* Planning::log(){
+    cout << endl << "---------------------------" << endl;
+    for (int ts=0; ts < TimeSlot::list.size(); ts++){
+        for(int p=0; p < Promotion::list.size(); p++){
+            Course* course = this->courses[Promotion::list[p]][TimeSlot::list[ts]];
+            if(course != NULL)
+                course->log();
+        }
+    }
 }
 
 bool Planning::courseIsPlannable(Course* course){

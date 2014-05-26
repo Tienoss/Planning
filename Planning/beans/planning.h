@@ -28,7 +28,8 @@ public:
     Planning* makeChange();
     Planning* initialiseHash();
     Planning* planCourse(Course* course);
-    Planning* unplanCourse(Course* course) ;
+    Planning* unplanCourse(Course* course);
+    Planning* log();
 
     bool courseIsPlannable(Course* course);
     TimeSlot* getFreeTimeSlot(QObject* q1);

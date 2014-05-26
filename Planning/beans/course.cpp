@@ -22,9 +22,9 @@ Teacher* Course::getTeacher(){return this->teacher;}
 Course* Course::setTeacher(Teacher* teacher){this->teacher = teacher; return this;}
 
 Course* Course::log(){
-    cout << "Room : " + this->getRoom()->getName() << endl;
-    cout << "Promo : " + this->getPromotion()->getName() << endl;
-    cout << "Prof : " + this->getTeacher()->getName() << endl;
-    cout << "TimeSlot : " + this->getTimeslot()->toString() << endl;
+    cout << "Room : " + this->getRoom()->getName();
+    cout << " // Promo : " + this->getPromotion()->getName();
+    cout << " // Prof : " + this->getTeacher()->getName();
+    cout << " // TimeSlot : " + this->getTimeslot()->toString() << endl;
     return this;
 }
