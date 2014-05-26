@@ -28,3 +28,13 @@ Course* Course::log(){
     cout << " // TimeSlot : " + this->getTimeslot()->toString() << endl;
     return this;
 }
+
+string Course::toJson(){
+    stringstream ret ; ret << "{" ;
+    ret << "id:" << this->getId() << "," ;
+    ret << "promotion:" << this->getPromotion()->getId() << "," ;
+    ret << "teacher:" << this->getTeacher()->getId() << "," ;
+    ret << "room:" << this->getRoom()->getId() << "," ;
+    ret << "timeslot:" << this->getTimeslot()->getId() << "" ;
+    ret << "}" ; return(ret.str()) ;
+}

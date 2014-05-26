@@ -12,18 +12,11 @@ void Intelligence::run(){
     Planning* best = Planning::best;
     Planning* test = Planning::test;
 
-    best->fromRandom() ;
-    best->log();
-    test->from(best) ;
-    test->makeChange() ;
-    test->log();
-    /*if(!Intelligence::checkDatas()){
-        cout << "Impossible de créer un planning !" ;
-        return ;
-    }*/
-    /*
+    best->fromRandom()->evaluate()->log() ;
+    test->from(best)->makeChange()->evaluate()->log() ;
+
     float tempInit = Parameters::getTemperatureInitiale();
-    (new Planning())->fromRandom()->evaluate();
+    /*(new Planning())->fromRandom()->evaluate();
 
     while(tempInit > 0){
         (new Planning())->from(Planning::list.first())->makeChange()->evaluate();

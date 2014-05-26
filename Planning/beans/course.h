@@ -35,6 +35,7 @@ public:
     Course* setTeacher(Teacher* teacher);
 
     Course* log();
+    string toJson() ;
 };
 
 #endif // COURSE_H

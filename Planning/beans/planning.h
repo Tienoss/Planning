@@ -39,6 +39,8 @@ public:
 
     Course* pickUpExistingCourse() ;
 
+    string jsonListOfCourses() ;
+
 };
 
 #endif // PLANNING_H
