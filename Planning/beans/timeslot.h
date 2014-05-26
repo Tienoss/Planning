@@ -3,7 +3,7 @@
 
 #include "../main.h"
 
-class TimeSlot
+class TimeSlot : public QObject
 {
 
 private:

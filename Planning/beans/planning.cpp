@@ -27,9 +27,6 @@ Planning* Planning::fromRandom(){
             if(this->courseIsPlannable(course)){
                 this->planCourse(course);
                 module->decrementDuration(course->getTimeslot()->getPeriod()->getLength());
-                cout << endl << "Cours ajoute : " << endl;
-                course->log();
-
             }else{
                 cout << "Cours non planifiable" << endl;
                 return NULL;
@@ -75,7 +72,18 @@ Course* Planning::pickUpExistingCourse(){
 }
 
 Planning* Planning::evaluate(){
-
+    int score = 0 ;
+    for (int ts=0; ts < TimeSlot::list.size(); ts++){
+        TimeSlot* timeslot = TimeSlot::list[ts] ;
+        for(int t=0; t < Teacher::list.size(); t++){
+            Teacher* teacher = Teacher::list[t] ;
+            Course* course = this->courses[teacher][timeslot] ;
+            if(course != NULL){
+                if(!teacher->isAvailable(timeslot))
+                    score++ ;
+            }
+        }
+    }
     return(this);
 }
 
@@ -97,6 +105,8 @@ Planning* Planning::makeChange(){
     if(this->courseIsPlannable(destCourse)){
         this->planCourse(destCourse);
         this->unplanCourse(sourceCourse);
+        cout << "Cours change -- ";
+        destCourse->log();
     }
     return(this);
 }
@@ -126,6 +136,20 @@ Planning* Planning::unplanCourse(Course* course){
     this->courses[course->getTeacher()][course->getTimeslot()] = NULL;
     this->courses[course->getPromotion()][course->getTimeslot()] = NULL;
     this->courses[course->getRoom()][course->getTimeslot()] = NULL;
+    return(this) ;
+}
+
+Planning* Planning::log(){
+    cout << "---------------------------" << endl;
+    cout << "Score : " << this->getScore() << endl ;
+    for (int ts=0; ts < TimeSlot::list.size(); ts++){
+        for(int p=0; p < Promotion::list.size(); p++){
+            Course* course = this->courses[Promotion::list[p]][TimeSlot::list[ts]];
+            if(course != NULL)
+                course->log();
+        }
+    }
+    cout << "---------------------------" << endl;
     return(this) ;
 }
 
