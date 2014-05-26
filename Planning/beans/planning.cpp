@@ -27,7 +27,7 @@ Planning* Planning::fromRandom(){
             if(this->courseIsPlannable(course)){
                 this->planCourse(course);
                 module->decrementDuration(course->getTimeslot()->getPeriod()->getLength());
-                cout << "Cours ajoute -- ";
+                //cout << "Cours ajoute -- ";
                 //course->log();
             }else{
                 cout << "Cours non planifiable" << endl;
