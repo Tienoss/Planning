@@ -3,7 +3,7 @@
 
 #include "../main.h"
 
-class Period
+class Period : public QObject
 {
 private:
     int id;

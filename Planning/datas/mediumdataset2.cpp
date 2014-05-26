@@ -1,12 +1,14 @@
-#include "mediumdataset2.h"
+#include "main.h"
 
-MediumDataSet2::MediumDataSet2(){
+void MediumDataSet2::load(){
     // Promotion
     Promotion* p = (new Promotion())->setName("Promotion1");
 
     // Teacher
     Teacher* t = (new Teacher())->setName("Prof1");
-    t->isAbsent()
+
+    t->isAvailable(p);
+    //t->isAbsent();
     // Room
     (new Room())->setName("Room1");
 
