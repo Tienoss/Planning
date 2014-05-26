@@ -3,7 +3,7 @@
 
 #include "../main.h"
 
-class Room : public QObject
+class Room : public SuperClass
 {
 private:
     int id;

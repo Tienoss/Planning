@@ -15,11 +15,8 @@ void Intelligence::run(){
     best->fromRandom() ;
     test->from(best) ;
     test->makeChange() ;
+    test->evaluate() ;
 
-    if(!Intelligence::checkDatas()){
-        cout << "Impossible de créer un planning !" ;
-        return ;
-    }
     /*
     float tempInit = Parameters::getTemperatureInitiale();
     (new Planning())->fromRandom()->evaluate();

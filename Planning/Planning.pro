@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     intelligence/intelligence.cpp \
     beans/module.cpp \
     datas/mediumdataset1.cpp \
-    datas/mediumdataset2.cpp
+    datas/mediumdataset2.cpp \
+    beans/superclass.cpp
 
 HEADERS  +=  datas/minimaldataset.h \
     beans/course.h \
@@ -48,6 +49,7 @@ HEADERS  +=  datas/minimaldataset.h \
     intelligence/intelligence.h \
     beans/module.h \
     datas/mediumdataset1.h \
-    datas/mediumdataset2.h
+    datas/mediumdataset2.h \
+    beans/superclass.h
 RESOURCES += \
     Resources.qrc

@@ -4,7 +4,7 @@
 class MediumDataSet2
 {
 public:
-    MediumDataSet2();
+    static void load() ;
 };
 
 #endif // MEDIUMDATASET2_H

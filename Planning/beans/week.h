@@ -3,7 +3,7 @@
 
 #include "../main.h"
 
-class Week
+class Week : public QObject
 {
 private:
     int id;

@@ -28,6 +28,8 @@
 #include <QProcess>
 #include <QMainWindow>
 #include <QHash>
+#include <QSet>
+#include <typeinfo>
 
 using namespace std;
 
@@ -40,6 +42,7 @@ class Period;
 class Week;
 class TimeSlot;
 
+#include "beans/superclass.h"
 #include "beans/course.h"
 #include "beans/promotion.h"
 #include "beans/room.h"
