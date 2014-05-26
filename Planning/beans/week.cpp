@@ -24,7 +24,7 @@ string Week::jsonList(){
 string Week::toJson(){
     stringstream ret ; ret << "{" ;
     ret << "id:" << this->getId() << "," ;
-    ret << "name:" << this->getName() ;
+    ret << "name:\"" << this->getName() << "\"" ;
     ret << "}" ; return(ret.str()) ;
 }
 

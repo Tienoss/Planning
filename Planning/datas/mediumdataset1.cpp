@@ -6,7 +6,6 @@ void MediumDataSet1::load(){
 
     // Teacher
     Teacher* t = (new Teacher())->setName("Prof1");
-    t->isAbsent()
     // Room
     (new Room())->setName("Room1");
 

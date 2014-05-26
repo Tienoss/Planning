@@ -59,7 +59,7 @@ Export* Export::exportContent(){
 
     // Course
     this->addContent("Data.Course=") ;
-    //this->addContent(Planning::list[0]->coursesJsonList()) ;
+    this->addContent(Planning::best->jsonListOfCourses()) ;
     this->addContent(";") ;
 
     return(this) ;

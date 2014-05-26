@@ -1,6 +1,8 @@
 #ifndef MINIMALDATASET_H
 #define MINIMALDATASET_H
 
+#include "../main.h"
+
 class MinimalDataSet
 {
 public:

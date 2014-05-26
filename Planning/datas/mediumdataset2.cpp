@@ -1,4 +1,4 @@
-#include "mediumdataset2.h"
+#include "../main.h"
 
 MediumDataSet2::MediumDataSet2(){
     // Promotion
@@ -6,7 +6,7 @@ MediumDataSet2::MediumDataSet2(){
 
     // Teacher
     Teacher* t = (new Teacher())->setName("Prof1");
-    t->isAbsent()
+
     // Room
     (new Room())->setName("Room1");
 

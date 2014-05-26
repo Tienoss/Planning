@@ -184,3 +184,20 @@ Room* Planning::getFreeRoom(TimeSlot* timeslot){
     }
     return NULL;
 }
+
+string Planning::jsonListOfCourses(){
+    stringstream ret  ;
+    ret << "[" ;
+    int i = 0 ;
+    for (int ts=0; ts < TimeSlot::list.size(); ts++) {
+        for(int p=0; p < Promotion::list.size(); p++) {
+            Course* course = this->courses[Promotion::list[p]][TimeSlot::list[ts]] ;
+            if(course != NULL){
+                ret << ((i>0)?",":"") << course->toJson() ;
+                i++ ;
+            }
+        }
+    }
+    ret << "]" ;
+    return(ret.str()) ;
+}
