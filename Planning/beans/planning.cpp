@@ -142,6 +142,7 @@ Planning* Planning::log(){
             }
         }
     }
+    return this;
 }
 
 bool Planning::courseIsPlannable(Course* course){
