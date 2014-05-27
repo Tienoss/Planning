@@ -1,6 +1,6 @@
 #include "../main.h"
 
-float Parameters::temperatureInitiale = 10 ;
+float Parameters::temperatureInitiale = 5 ;
 float Parameters::temperatureDecrement = 1 ;
 
 Parameters::Parameters(){}
@@ -13,12 +13,8 @@ float Parameters::random(float min, float max)
     return min + r;
 }
 
-int Parameters::randomInt(int min, int max)
-{
-    float random = ((float)rand()) / (float)RAND_MAX;
-    float diff = max - min;
-    float r = random * diff;
-    return (int)(min + r);
+int Parameters::randomInt(int min, int max) {
+    max++ ; return(rand()%(max-min)+min) ;
 }
 
 float Parameters::getTemperatureInitiale(){ return(Parameters::temperatureInitiale) ; }
