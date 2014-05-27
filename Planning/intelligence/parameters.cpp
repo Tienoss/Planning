@@ -1,6 +1,6 @@
 #include "../main.h"
 
-float Parameters::temperatureInitiale = 5 ;
+float Parameters::temperatureInitiale = 100 ;
 float Parameters::temperatureDecrement = 1 ;
 
 Parameters::Parameters(){}
