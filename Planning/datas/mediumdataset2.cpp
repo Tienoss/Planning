@@ -16,15 +16,15 @@ void MediumDataSet2::load(){
     (new Period())->setFrom(600)->setLength(120); // 10h 12h
 
     // Promotion
-    Promotion* p = (new Promotion())->setName("Promotion1");
+    Promotion* p = (new Promotion())->setName("I4");
 
     // Teacher
-    Teacher* t = (new Teacher())->setName("Prof1");
-    t->addUnavailability(lundi) ;
+    Teacher* camboue = (new Teacher())->setName("Papi Camboue");
+    camboue->addUnavailability(lundi) ;
 
     // Room
-    (new Room())->setName("Room1");
+    (new Room())->setName("Belle Ile");
 
     // Module
-    (new Module())->setTeacher(t)->setPromotion(p)->setDuration(240) ;
+    (new Module())->setTeacher(camboue)->setPromotion(p)->setDuration(240) ;
 }

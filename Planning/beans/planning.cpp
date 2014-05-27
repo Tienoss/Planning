@@ -109,8 +109,9 @@ Planning* Planning::makeChange(){
     if(this->courseIsPlannable(destCourse)){
         this->planCourse(destCourse);
         this->unplanCourse(sourceCourse);
-        cout << "Cours change -- ";
-        destCourse->log();
+        cout << "Cours change :" << endl ;
+        cout << "--- From : " ; sourceCourse->log() ;
+        cout << "--- To   : " ; destCourse->log() ;
     }
     return(this);
 }
@@ -193,13 +194,20 @@ TimeSlot* Planning::getFreeTimeSlot(QObject* q1, QObject* q2){
 
 TimeSlot* Planning::getFreeTimeSlot(QObject* q1, QObject* q2, QObject* q3){
 
+    QList<TimeSlot*> freeTimeSlots ;
+
     for(int i = 0; i < TimeSlot::list.size(); i++){
         TimeSlot* timeslot = TimeSlot::list[i];
         if(courses[q1][timeslot] == NULL && courses[q2][timeslot] == NULL && courses[q3][timeslot] == NULL){
-            return timeslot;
+            freeTimeSlots.append(timeslot) ;
         }
     }
-    return NULL;
+
+    if(freeTimeSlots.size() == 0){ cout << "On est dans la merde !" << endl; return(NULL) ; }
+
+    int id = Parameters::random(0,freeTimeSlots.size()-1) ;
+    TimeSlot* ts = freeTimeSlots.at(id) ;
+    return(ts) ;
 }
 
 Room* Planning::getFreeRoom(TimeSlot* timeslot){
