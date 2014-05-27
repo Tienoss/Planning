@@ -83,7 +83,7 @@ Planning* Planning::evaluate(){
             Course* course = this->courses[teacher][timeslot] ;
             if(course != NULL){
                 if(!teacher->isAvailable(timeslot))
-                    score++ ;
+                    score+=10 ;
             }
         }
     }

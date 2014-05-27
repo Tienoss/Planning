@@ -1,10 +1,10 @@
 #ifndef MEDIUMDATASET3_H
 #define MEDIUMDATASET3_H
 
-class mediumdataset3
+class MediumDataSet3
 {
 public:
-    mediumdataset3();
+    static void load() ;
 };
 
 #endif // MEDIUMDATASET3_H

@@ -52,6 +52,7 @@ HEADERS  +=  datas/minimaldataset.h \
     datas/mediumdataset1.h \
     datas/mediumdataset2.h \
     beans/superclass.h \
+    datas/mediumdataset3.h \
     datas/mediumdataset3.h
 RESOURCES += \
     Resources.qrc

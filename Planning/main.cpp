@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 
     srand(time(NULL));
 
-    MediumDataSet2::load() ;
+    MediumDataSet3::load() ;
     TimeSlot::generate() ;
 
     Intelligence::run() ;
