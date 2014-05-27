@@ -39,7 +39,6 @@ Planning* Planning::fromRandom(){
 
 Planning* Planning::from(Planning* planning){
     for (int ts=0; ts < TimeSlot::list.size(); ts++){
-        cout << "Timeslot : " << ts << endl ;
         for(int p=0; p < Promotion::list.size(); p++)
             this->courses[Promotion::list[p]][TimeSlot::list[ts]] = planning->courses[Promotion::list[p]][TimeSlot::list[ts]];
 

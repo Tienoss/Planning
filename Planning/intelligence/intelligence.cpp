@@ -22,7 +22,6 @@ void Intelligence::run(){
         float delta = Planning::test->getScore() - Planning::best->getScore() ;
 
         if(Intelligence::critereMetropolis(delta, temp)){
-            cout << "Change !" << endl ;
             best->from(test) ;
         }
 
@@ -34,7 +33,6 @@ void Intelligence::run(){
 bool Intelligence::critereMetropolis(float delta, float temp){
     if(delta <= 0) return(true) ;
     else{
-        cout << "Delta > 0 !" << endl ;
         float random = Parameters::random(0,1) ;
         float metropolis = exp((delta*(-1)) / temp) ;
         if(random < metropolis) return(true) ;
