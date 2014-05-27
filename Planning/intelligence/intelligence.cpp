@@ -16,43 +16,30 @@ void Intelligence::run(){
     cout << "Planning initial" << endl ;
     best->fromRandom()->evaluate()->log() ;
 
-    /*while(temp > 0){
+    while(temp > 0){
 
         test->from(best)->makeChange()->evaluate() ;
+        float delta = Planning::test->getScore() - Planning::best->getScore() ;
 
-        if(Planning::best->getScore() > Planning::test->getScore()){
-            // Le test est meilleur
-            Planning::best->from(test) ;
+        if(Intelligence::critereMetropolis(delta, temp)){
+            cout << "Change !" << endl ;
+            best->from(test) ;
         }
-        else{
-            // Le test est moins bon, on a quand même une proba de le garder
-            float proba = exp( (Planning::test->getScore() - Planning::best->getScore()) / temp ) ;
-            if(Parameters::random(0,1) < proba)
-                Planning::best->from(test) ;
-        }
+
         temp -= Parameters::getTemperatureDecrement() ;
-    }*/
+    }
 
+}
 
-
-
-
-
-
-    /*(new Planning())->fromRandom()->evaluate();
-
-    while(tempInit > 0){
-        (new Planning())->from(Planning::list.first())->makeChange()->evaluate();
-
-        if(Planning::list.first()->getScore() < Planning::list.last()->getScore()){
-            Planning::list[0] = Planning::list.last();
-            Planning::list.removeLast();
-        }
-        else{
-		}
-		tempInit -= Parameters::getTemperatureDecrement();
-   }
-    */
+bool Intelligence::critereMetropolis(float delta, float temp){
+    if(delta <= 0) return(true) ;
+    else{
+        cout << "Delta > 0 !" << endl ;
+        float random = Parameters::random(0,1) ;
+        float metropolis = exp((delta*(-1)) / temp) ;
+        if(random < metropolis) return(true) ;
+        else return(false) ;
+    }
 }
 
 bool Intelligence::checkDatas(){

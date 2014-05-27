@@ -8,6 +8,7 @@ class Intelligence
 public:
     Intelligence();
     static void run();
+    static bool critereMetropolis(float delta, float temp) ;
     static bool checkDatas() ;
     static void initialiseHashmaps();
 

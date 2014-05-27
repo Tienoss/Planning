@@ -39,6 +39,7 @@ Planning* Planning::fromRandom(){
 
 Planning* Planning::from(Planning* planning){
     for (int ts=0; ts < TimeSlot::list.size(); ts++){
+        cout << "Timeslot : " << ts << endl ;
         for(int p=0; p < Promotion::list.size(); p++)
             this->courses[Promotion::list[p]][TimeSlot::list[ts]] = planning->courses[Promotion::list[p]][TimeSlot::list[ts]];
 
@@ -63,8 +64,11 @@ Course* Planning::pickUpExistingCourse(){
 
     for (int ts=0; ts < TimeSlot::list.size(); ts++) {
         for(int p=0; p < Promotion::list.size(); p++) {
-            if(chosen == 0) return(this->courses[Promotion::list[p]][TimeSlot::list[ts]]) ;
-            chosen-- ;
+            if(this->courses[Promotion::list[p]][TimeSlot::list[ts]] != NULL){
+                if(chosen == 0)
+                    return(this->courses[Promotion::list[p]][TimeSlot::list[ts]]) ;
+                chosen-- ;
+            }
         }
     }
 

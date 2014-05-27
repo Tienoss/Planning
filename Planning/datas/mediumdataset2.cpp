@@ -20,7 +20,7 @@ void MediumDataSet2::load(){
 
     // Teacher
     Teacher* t = (new Teacher())->setName("Prof1");
-    t->addUnavailability(mardi) ;
+    t->addUnavailability(lundi) ;
 
     // Room
     (new Room())->setName("Room1");
