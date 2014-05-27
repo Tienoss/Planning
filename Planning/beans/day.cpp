@@ -13,8 +13,8 @@ Day* Day::setName(string name){this->name = name; return this;}
 
 string Day::jsonList(){
     stringstream ret ; ret << "[" ;
-    for(int i = 0 ; i < Room::list.size() ; i++)
-        ret << ((i>0)?",":"") << Room::list[i]->toJson() ;
+    for(int i = 0 ; i < Day::list.size() ; i++)
+        ret << ((i>0)?",":"") << Day::list[i]->toJson() ;
     ret << "]" ; return(ret.str()) ;
 }
 

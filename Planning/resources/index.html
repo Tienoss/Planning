@@ -3,47 +3,69 @@
 <head>
   <meta charset="utf-8">
   <title>Plannings !</title>
-  <link rel="stylesheet" href="http://planning.vltn.fr/Tips.css">
-  <link rel="stylesheet" href="http://planning.vltn.fr/Layout.css">
-  <link rel="stylesheet" href="http://planning.vltn.fr/Design.css">
-  <link rel="stylesheet" href="http://planning.vltn.fr/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
+  <!-- Css -->
+  <link rel="stylesheet" href="http://planning.vltn.fr/css/Box/Box.css">
+  <link rel="stylesheet" href="http://planning.vltn.fr/css/Design/Design.css">
+  <!-- JsLib -->
+  <script src="http://planning.vltn.fr/js/L/underscore.min.js"></script>
+  <script src="http://planning.vltn.fr/js/L/underscore.string.min.js"></script>
+  <script src="http://planning.vltn.fr/js/HtmlPage/jsclass/core.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
-  <script src="http://planning.vltn.fr/Tips.Class.js"></script>
-  <script src="http://planning.vltn.fr/Design.Class.js"></script>
-  <script src="http://planning.vltn.fr/Moment.Class.js"></script>
-
-  <script src="http://planning.vltn.fr/Design.mod.ng.js"></script>
-  <script src="http://planning.vltn.fr/Application.mod.ng.js"></script>
-  <script src="http://planning.vltn.fr/Moment.mod.ng.js"></script>
-  
-  <script src="http://planning.vltn.fr/setlayout.dir.ng.js"></script>
-  <script src="http://planning.vltn.fr/columns.dir.ng.js"></script>
-
-  <script src="./datas.js"></script>
-  <script src="http://planning.vltn.fr/classes.js"></script>
-  <script src="http://planning.vltn.fr/script.js"></script>
+  <!-- JsVar -->
+  <script src="http://planning.vltn.fr/js/Builder/ApplicationBuilder.js"></script>
+  <script type="text/javascript">
+  ApplicationBuilder.vars["ApplicationBuilder.classes"] = {
+    "L":"Core", "Box":"Core", "Design":"Core", "Moment" : "Core", "FreeTime" : true,
+    "AngularJS": "Core", "Receiver": true, "Week" : true, "Day" : true , "Period" : true, "Minute" : true , "TimeSlot" : true,
+    "Teacher" : true, "Promotion" : true, "Room" : true, "Course" : true, "Slot" : true, "Instance" : true, "CourseSet" : true
+  } ;
+  ApplicationBuilder.vars["ApplicationBuilder.levels"] = ["Core","Planning","Client"] ;
+  ApplicationBuilder.vars["AngularJS.moduleDependancies"] = ["Box", "Design", "Planning", "L", "Moment"] ;
+  ApplicationBuilder.init() ;
+  </script>
+  <!-- JsClass -->
+  <script src="datas.js"></script>
+  <script src="http://planning.vltn.fr/js/L/CoreL.Class.js"></script>
+  <script src="http://planning.vltn.fr/js/classes.js"></script>
+  <script src="http://planning.vltn.fr/js/Box/CoreBox.Class.js"></script>
+  <script src="http://planning.vltn.fr/js/Design/CoreDesign.Class.js"></script>
+  <script src="http://planning.vltn.fr/js/Moment/CoreMoment.Class.js"></script>
+  <script src="http://planning.vltn.fr/js/AngularJS/CoreAngularJS.Class.js"></script>
+  <script type="text/javascript">ApplicationBuilder.load() ;</script>
+  <!-- JsScript -->
+  <script src="http://planning.vltn.fr/js/Box/Box.mod.ng.js"></script>
+  <script src="http://planning.vltn.fr/js/Design/Design.mod.ng.js"></script>
+  <script src="http://planning.vltn.fr/js/Application/Application.mod.ng.js"></script>
+  <script src="http://planning.vltn.fr/js/AngularJS/Angular.mod.ng.js"></script>
+  <script src="http://planning.vltn.fr/js/AngularJS/L.mod.ng.js"></script>
+  <script src="http://planning.vltn.fr/js/Moment/Moment.mod.ng.js"></script>
 </head>
 <body>
-  <div ng-app="Planning" h="window" w="window">
-    <columns h="full" w="full" ng-controller="WeekController">
-      <column h="full" w="300">
-        Show courses for... <br />
-          <select ng-model="receiver" ng-options="receiver.name for receiver in receivers"></select>
-      </column>
-      <column h="full" w="window-300">
-        <columns h="full" w="full">
-          <column ng-repeat="day in days" w="{{1/days.length}}" h="full" ng-controller="DayController"  lbord="intense" tbord="intense">
-            <div ng-repeat="slot in dayslots" ng-controller="SlotController" ng-style="getStyle()" halign="center" bbord="intense">
-              {{slot.getStartTime()|getTimeFromTodayMinutes}} > {{slot.getEndTime()|getTimeFromTodayMinutes}}<br />
-              <div ng-if="slot.isBlank()">-</div>
-              <div ng-if="!slot.isBlank()">{{slot.course.promotion.name}} - {{slot.course.teacher.name}} - {{slot.course.room.name}}</div>
-            </div>
-          </column>
-        </columns>
-      </column>
-    </columns>
+  <div ng-app="AngularModule">
+    <div ng-controller="CoreController">
+      <boxes ng-controller="PlanningController" h="window" w="window">
+        <boxes size="0.2" ver padd="10" bright="intense">
+          <box>Afficher les cours de...</box>
+          <select box ng-model="receiver" ng-options="receiver.name for receiver in receivers"></select>
+          <box mtop="10">sur la semaine...</box>
+          <select box ng-model="week" ng-options="week.name for week in weeks"></select>
+        </boxes>
+        <boxes size="0.8" ng-controller="WeekController">
+          <boxes box ng-repeat="day in days" ng-style="{'flex-basis' : (1/days.length *  100) + '%' }" ver bright="timid">
+            <box size="30" freespace="sides" nostretch bbott="timid"><box>{{day.name}}</box></box>
+            <box fill ver>
+              <box ng-style="{'flex-grow' : (course.getDuration() + '')}" ng-repeat="course in daycourses[day.id]" freespace="sides" nostretch bbott="timid">
+                <box ng-if="course.type == 'Course'" talign="center">
+                  {{course.teacher.name}} - {{course.room.name}} - {{course.promotion.name}}<br />
+                  {{course.getStartTime() | getTimeFromTodayMinutes }} > {{course.getEndTime() | getTimeFromTodayMinutes}}
+                </box>
+              </box>
+            </box>
+          </boxes>
+        </boxes>
+      </boxes>
+    </div>
   </div>
 </body>
 </html>

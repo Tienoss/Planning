@@ -84,6 +84,7 @@ Planning* Planning::evaluate(){
             }
         }
     }
+    this->setScore(score) ;
     return(this);
 }
 

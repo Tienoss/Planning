@@ -11,11 +11,34 @@ void Intelligence::run(){
 
     Planning* best = Planning::best;
     Planning* test = Planning::test;
+    float temp = Parameters::getTemperatureInitiale();
 
+    cout << "Planning initial" << endl ;
     best->fromRandom()->evaluate()->log() ;
-    test->from(best)->makeChange()->evaluate()->log() ;
 
-    float tempInit = Parameters::getTemperatureInitiale();
+    /*while(temp > 0){
+
+        test->from(best)->makeChange()->evaluate() ;
+
+        if(Planning::best->getScore() > Planning::test->getScore()){
+            // Le test est meilleur
+            Planning::best->from(test) ;
+        }
+        else{
+            // Le test est moins bon, on a quand même une proba de le garder
+            float proba = exp( (Planning::test->getScore() - Planning::best->getScore()) / temp ) ;
+            if(Parameters::random(0,1) < proba)
+                Planning::best->from(test) ;
+        }
+        temp -= Parameters::getTemperatureDecrement() ;
+    }*/
+
+
+
+
+
+
+
     /*(new Planning())->fromRandom()->evaluate();
 
     while(tempInit > 0){
