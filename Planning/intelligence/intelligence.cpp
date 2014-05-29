@@ -19,11 +19,11 @@ void Intelligence::run(){
     while(temp > 0){
         best->evaluate() ;
         test->from(best)->makeChange()->evaluate() ;
-        cout << "Test score : " << test->getScore() << " - Best score : " << best->getScore() << endl ;
+        //cout << "Test score : " << test->getScore() << " - Best score : " << best->getScore() << endl ;
         float delta = Planning::test->getScore() - Planning::best->getScore() ;
 
         if(Intelligence::critereMetropolis(delta, temp)){
-            cout << "Keep test !" << endl ;
+            //cout << "Keep test !" << endl ;
             best->from(test) ;
         }
 
