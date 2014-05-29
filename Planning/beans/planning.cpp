@@ -83,7 +83,7 @@ Planning* Planning::evaluate(){
             Course* course = this->courses[teacher][timeslot] ;
             if(course != NULL){
                 if(!teacher->isAvailable(timeslot))
-                    score+=10 ;
+                    score += 1 ;
             }
         }
     }
@@ -109,9 +109,9 @@ Planning* Planning::makeChange(){
     if(this->courseIsPlannable(destCourse)){
         this->planCourse(destCourse);
         this->unplanCourse(sourceCourse);
-        cout << "Cours change :" << endl ;
-        cout << "--- From : " ; sourceCourse->log() ;
-        cout << "--- To   : " ; destCourse->log() ;
+        //cout << "Cours change :" << endl ;
+        //cout << "--- From : " ; sourceCourse->log() ;
+        //cout << "--- To   : " ; destCourse->log() ;
     }
     return(this);
 }
