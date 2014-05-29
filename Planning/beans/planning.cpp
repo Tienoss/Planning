@@ -143,9 +143,9 @@ Planning* Planning::makeChange(){
     if(this->courseIsPlannable(destCourse)){
         this->planCourse(destCourse);
         this->unplanCourse(sourceCourse);
-        //cout << "Cours change :" << endl ;
-        //cout << "--- From : " ; sourceCourse->log() ;
-        //cout << "--- To   : " ; destCourse->log() ;
+        /*cout << "Cours change :" << endl ;
+        cout << "--- From : " ; sourceCourse->log() ;
+        cout << "--- To   : " ; destCourse->log() ;*/
     }
     return(this);
 }
