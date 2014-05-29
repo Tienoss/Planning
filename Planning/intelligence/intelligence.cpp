@@ -15,10 +15,12 @@ void Intelligence::run(){
 
     cout << "Planning initial" << endl ;
     best->fromRandom()->evaluate()->log() ;
+    int i = 0 ;
 
     while(temp > 0){
         best->evaluate() ;
-        cout << "Best score : " << best->getScore() << endl ;
+        if(i % 1000 == 0)
+            cout << "Temp : " << temp << " - Score : " << best->getScore() << endl ;
         test->from(best)->makeChange()->evaluate() ;
         //cout << "Test score : " << test->getScore() << " - Best score : " << best->getScore() << endl ;
         float delta = Planning::test->getScore() - Planning::best->getScore() ;
@@ -29,8 +31,9 @@ void Intelligence::run(){
         }
 
         temp -= Parameters::getTemperatureDecrement() ;
+        i++ ;
     }
-    cout << "Best final score : " << best->evaluate()->getScore() << endl ;
+    cout << "Final score : " << best->evaluate()->getScore() << endl ;
 }
 
 bool Intelligence::critereMetropolis(float delta, float temp){

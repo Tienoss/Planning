@@ -76,6 +76,7 @@ Course* Planning::pickUpExistingCourse(){
 
 Planning* Planning::evaluate(){
     int score = 0 ;
+    // Augmentation du score pour chaque cours placé ou le prof est indisponible
     for (int ts=0; ts < TimeSlot::list.size(); ts++){
         TimeSlot* timeslot = TimeSlot::list[ts] ;
         for(int t=0; t < Teacher::list.size(); t++){
@@ -83,10 +84,43 @@ Planning* Planning::evaluate(){
             Course* course = this->courses[teacher][timeslot] ;
             if(course != NULL){
                 if(!teacher->isAvailable(timeslot))
-                    score += 1 ;
+                    score += 10 ;
             }
         }
     }
+
+    // Augmentation du score si il y a plus de 10h d'un même cours pour une promo dans une semaine
+    QHash<Promotion*, QHash<Teacher*, QHash<Week*, int> > > times ;
+
+    // Init
+    for (int p=0; p < Promotion::list.size(); p++){
+        for (int t=0; t < Teacher::list.size(); t++){
+            for (int w=0; w < Week::list.size(); w++){
+                times[Promotion::list[p]][Teacher::list[t]][Week::list[w]] = 0 ;
+            }
+        }
+    }
+    // Fill
+    for (int p=0; p < Promotion::list.size(); p++){
+        Promotion* promotion = Promotion::list[p] ;
+        for (int ts=0; ts < TimeSlot::list.size(); ts++){
+            TimeSlot* timeslot = TimeSlot::list[ts] ;
+            Course* course = courses[promotion][timeslot] ;
+            if(course != NULL)
+                times[promotion][course->getTeacher()][timeslot->getWeek()] += timeslot->getPeriod()->getLength() ;
+        }
+    }
+    // Count
+    for (int p=0; p < Promotion::list.size(); p++){
+        for (int t=0; t < Teacher::list.size(); t++){
+            for (int w=0; w < Week::list.size(); w++){
+                if(times[Promotion::list[p]][Teacher::list[t]][Week::list[w]] > 600)
+                    score += 5 ;
+            }
+        }
+    }
+
+
     this->setScore(score) ;
     return(this);
 }

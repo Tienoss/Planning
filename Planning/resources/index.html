@@ -55,10 +55,13 @@
           <boxes box ng-repeat="day in days" ng-style="{'flex-basis' : (1/days.length *  100) + '%' }" ver bright="timid">
             <box size="30" freespace="sides" nostretch bbott="timid"><box>{{day.name}}</box></box>
             <box fill ver>
-              <box ng-style="{'flex-grow' : (course.getDuration() + '')}" ng-repeat="course in daycourses[day.id]" freespace="sides" nostretch bbott="timid">
+              <box course ng-style="{'flex-grow' : (course.getDuration() + '')}" ng-repeat="course in daycourses[day.id]" freespace="sides" nostretch bbott="timid">
                 <box ng-if="course.type == 'Course'" talign="center">
                   {{course.teacher.name}} - {{course.room.name}} - {{course.promotion.name}}<br />
                   {{course.getStartTime() | getTimeFromTodayMinutes }} > {{course.getEndTime() | getTimeFromTodayMinutes}}
+                </box>
+                <box ng-if="course.type == 'FreeTime'" style="color:transparent" talign="center">
+                 -<br />-
                 </box>
               </box>
             </box>
