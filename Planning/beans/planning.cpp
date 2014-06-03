@@ -74,6 +74,32 @@ Course* Planning::pickUpExistingCourse(){
     return(NULL) ;
 }
 
+/*Bool Planning::hasInterlacedCourses(){
+    int nbCourses = 0;
+    for (int p=0; p < Promotion::list.size(); p++){
+        for (int w=0; w < Week::list.size(); w++){
+            for (int d=0; d < Day::list.size(); d++){
+                for (int t=0; t < Teacher::list.size(); t++){
+                    nbCourses = 0;
+
+                }
+            }
+        }
+    }
+
+
+    for (int ts=0; ts < TimeSlot::list.size(); ts++) {
+        for(int p=0; p < Promotion::list.size(); p++) {
+
+            //if(this->courses[Promotion::list[p]][TimeSlot::list[ts]] != NULL){
+              //  if(chosen == 0)
+                //    return(this->courses[Promotion::list[p]][TimeSlot::list[ts]]) ;
+                //chosen-- ;
+            //}
+        }
+    }
+}
+*/
 Planning* Planning::evaluate(){
     int score = 0 ;
     for (int ts=0; ts < TimeSlot::list.size(); ts++){
@@ -87,6 +113,7 @@ Planning* Planning::evaluate(){
             }
         }
     }
+    //if(hasInterlacedCourses) score += 0.2;
     this->setScore(score) ;
     return(this);
 }

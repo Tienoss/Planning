@@ -18,7 +18,7 @@ void Intelligence::run(){
 
     while(temp > 0){
         best->evaluate() ;
-        cout << "Best score : " << best->getScore() << endl ;
+        //cout << "Best score : " << best->getScore() << endl ;
         test->from(best)->makeChange()->evaluate() ;
         //cout << "Test score : " << test->getScore() << " - Best score : " << best->getScore() << endl ;
         float delta = Planning::test->getScore() - Planning::best->getScore() ;

@@ -3,7 +3,7 @@
 void MediumDataSet3::load(){
     // Week
     (new Week())->setName("Semaine 01");
-    (new Week())->setName("Week2");
+    //(new Week())->setName("Week2");
 
     // Day
     Day* lundi = (new Day())->setName("Lundi");
@@ -20,7 +20,7 @@ void MediumDataSet3::load(){
 
     // Promotion
     Promotion* i4 = (new Promotion())->setName("I4");
-    Promotion* i3 = (new Promotion())->setName("I3");
+    //Promotion* i3 = (new Promotion())->setName("I3");
 
     // Teacher
     Teacher* cambou = (new Teacher())->setName("Cambou");
@@ -40,16 +40,18 @@ void MediumDataSet3::load(){
 
     // Room
     (new Room())->setName("Belle-Ile");
-    (new Room())->setName("Breat");
+    //(new Room())->setName("Breat");
 
     // Module
     (new Module())->setTeacher(cambou)->setPromotion(i4)->setDuration(480) ;
     (new Module())->setTeacher(reinold)->setPromotion(i4)->setDuration(480) ;
+    (new Module())->setTeacher(bordat)->setPromotion(i4)->setDuration(480) ;
+    (new Module())->setTeacher(deschamps)->setPromotion(i4)->setDuration(240) ;
 
-    (new Module())->setTeacher(cambou)->setPromotion(i3)->setDuration(480) ;
-    (new Module())->setTeacher(reinold)->setPromotion(i3)->setDuration(480) ;
-    (new Module())->setTeacher(bordat)->setPromotion(i3)->setDuration(240) ;
-    (new Module())->setTeacher(bordat)->setPromotion(p)->setDuration(480) ;
-    (new Module())->setTeacher(lemmonier)->setPromotion(p)->setDuration(480) ;
-    (new Module())->setTeacher(deschamps)->setPromotion(p)->setDuration(240) ;
+    //(new Module())->setTeacher(cambou)->setPromotion(i3)->setDuration(480) ;
+    //(new Module())->setTeacher(reinold)->setPromotion(i3)->setDuration(480) ;
+    //(new Module())->setTeacher(bordat)->setPromotion(i3)->setDuration(240) ;
+    //(new Module())->setTeacher(bordat)->setPromotion(i3)->setDuration(480) ;
+    //(new Module())->setTeacher(lemmonier)->setPromotion(i3)->setDuration(480) ;
+    //(new Module())->setTeacher(deschamps)->setPromotion(i3)->setDuration(240) ;
 }
