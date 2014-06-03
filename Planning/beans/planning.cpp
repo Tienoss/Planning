@@ -74,34 +74,9 @@ Course* Planning::pickUpExistingCourse(){
     return(NULL) ;
 }
 
-/*Bool Planning::hasInterlacedCourses(){
-    int nbCourses = 0;
-    for (int p=0; p < Promotion::list.size(); p++){
-        for (int w=0; w < Week::list.size(); w++){
-            for (int d=0; d < Day::list.size(); d++){
-                for (int t=0; t < Teacher::list.size(); t++){
-                    nbCourses = 0;
-
-                }
-            }
-        }
-    }
-
-
-    for (int ts=0; ts < TimeSlot::list.size(); ts++) {
-        for(int p=0; p < Promotion::list.size(); p++) {
-
-            //if(this->courses[Promotion::list[p]][TimeSlot::list[ts]] != NULL){
-              //  if(chosen == 0)
-                //    return(this->courses[Promotion::list[p]][TimeSlot::list[ts]]) ;
-                //chosen-- ;
-            //}
-        }
-    }
-}
-*/
 Planning* Planning::evaluate(){
     int score = 0 ;
+    // Augmentation du score pour chaque cours placé ou le prof est indisponible
     for (int ts=0; ts < TimeSlot::list.size(); ts++){
         TimeSlot* timeslot = TimeSlot::list[ts] ;
         for(int t=0; t < Teacher::list.size(); t++){
@@ -109,11 +84,43 @@ Planning* Planning::evaluate(){
             Course* course = this->courses[teacher][timeslot] ;
             if(course != NULL){
                 if(!teacher->isAvailable(timeslot))
-                    score += 1 ;
+                    score += 10 ;
             }
         }
     }
-    //if(hasInterlacedCourses) score += 0.2;
+
+    // Augmentation du score si il y a plus de 10h d'un même cours pour une promo dans une semaine
+    QHash<Promotion*, QHash<Teacher*, QHash<Week*, int> > > times ;
+
+    // Init
+    for (int p=0; p < Promotion::list.size(); p++){
+        for (int t=0; t < Teacher::list.size(); t++){
+            for (int w=0; w < Week::list.size(); w++){
+                times[Promotion::list[p]][Teacher::list[t]][Week::list[w]] = 0 ;
+            }
+        }
+    }
+    // Fill
+    for (int p=0; p < Promotion::list.size(); p++){
+        Promotion* promotion = Promotion::list[p] ;
+        for (int ts=0; ts < TimeSlot::list.size(); ts++){
+            TimeSlot* timeslot = TimeSlot::list[ts] ;
+            Course* course = courses[promotion][timeslot] ;
+            if(course != NULL)
+                times[promotion][course->getTeacher()][timeslot->getWeek()] += timeslot->getPeriod()->getLength() ;
+        }
+    }
+    // Count
+    for (int p=0; p < Promotion::list.size(); p++){
+        for (int t=0; t < Teacher::list.size(); t++){
+            for (int w=0; w < Week::list.size(); w++){
+                if(times[Promotion::list[p]][Teacher::list[t]][Week::list[w]] > 600)
+                    score += 5 ;
+            }
+        }
+    }
+
+
     this->setScore(score) ;
     return(this);
 }
