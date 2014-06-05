@@ -6,10 +6,14 @@ int main(int argc, char *argv[])
 
     srand(time(NULL));
 
-    MediumDataSet3::load() ;
+    FullDataSet::load() ;
     TimeSlot::generate() ;
 
+    clock_t tStart = clock();
+
     Intelligence::run() ;
+
+    printf("Time taken: %.8fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
 
     Export::getInstance()->run() ;
 

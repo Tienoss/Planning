@@ -8,8 +8,8 @@ Planning::Planning(){}
 
 int Planning::getId(){return this->id;}
 
-int Planning::getScore(){return this->score;}
-Planning* Planning::setScore(int score){this->score = score; return this;}
+float Planning::getScore(){return this->score;}
+Planning* Planning::setScore(float score){this->score = score; return this;}
 
 Planning* Planning::fromRandom(){
    Course* course;
@@ -75,7 +75,7 @@ Course* Planning::pickUpExistingCourse(){
 }
 
 Planning* Planning::evaluate(){
-    int score = 0 ;
+    float score = 0 ;
     // Augmentation du score pour chaque cours placé ou le prof est indisponible
     for (int ts=0; ts < TimeSlot::list.size(); ts++){
         TimeSlot* timeslot = TimeSlot::list[ts] ;
@@ -90,7 +90,7 @@ Planning* Planning::evaluate(){
     }
 
     // Augmentation du score si il y a plus de 10h d'un même cours pour une promo dans une semaine
-    QHash<Promotion*, QHash<Teacher*, QHash<Week*, int> > > times ;
+    QHash<Promotion*, QHash<Teacher*, QHash<Week*, float> > > times ;
 
     // Init
     for (int p=0; p < Promotion::list.size(); p++){
@@ -118,6 +118,39 @@ Planning* Planning::evaluate(){
                     score += 5 ;
             }
         }
+    }
+
+
+    // Equilibrage des semaines
+    QHash<Promotion*, QHash<Week*, float> > eq_times ;
+
+    // Init
+    for (int p=0; p < Promotion::list.size(); p++){
+        for (int w=0; w < Week::list.size(); w++){
+            eq_times[Promotion::list[p]][Week::list[w]] = 0 ;
+        }
+    }
+    // Fill
+    for (int p=0; p < Promotion::list.size(); p++){
+        Promotion* promotion = Promotion::list[p] ;
+        for (int ts=0; ts < TimeSlot::list.size(); ts++){
+            TimeSlot* timeslot = TimeSlot::list[ts] ;
+            Course* course = courses[promotion][timeslot] ;
+            if(course != NULL)
+                eq_times[promotion][timeslot->getWeek()] += timeslot->getPeriod()->getLength() ;
+        }
+    }
+    // Count
+    for (int p=0; p < Promotion::list.size(); p++){
+        float somme = 0 ;
+        for (int w=0; w < Week::list.size(); w++)
+            somme += eq_times[Promotion::list[p]][Week::list[w]] ;
+        float moyenne = somme / Week::list.size() ;
+        float somme_ecarts = 0 ;
+        for (int w=0; w < Week::list.size(); w++)
+            somme_ecarts += fabs(moyenne - eq_times[Promotion::list[p]][Week::list[w]]) ;
+        float theScore = (somme_ecarts / somme) * 5 ;
+        if(theScore > 0.5) score += theScore ;
     }
 
 
@@ -204,7 +237,7 @@ bool Planning::courseIsPlannable(Course* course){
     return true;
 }
 
-TimeSlot* Planning::getFreeTimeSlot(QObject* q1){
+TimeSlot* Planning::getFreeTimeSlot(SuperClass* q1){
 
     for(int i = 0; i < TimeSlot::list.size(); i++){
         TimeSlot* timeslot = TimeSlot::list[i];
@@ -215,7 +248,7 @@ TimeSlot* Planning::getFreeTimeSlot(QObject* q1){
     return NULL;
 }
 
-TimeSlot* Planning::getFreeTimeSlot(QObject* q1, QObject* q2){
+TimeSlot* Planning::getFreeTimeSlot(SuperClass* q1, SuperClass* q2){
 
     for(int i = 0; i < TimeSlot::list.size(); i++){
         TimeSlot* timeslot = TimeSlot::list[i];
@@ -226,7 +259,7 @@ TimeSlot* Planning::getFreeTimeSlot(QObject* q1, QObject* q2){
     return NULL;
 }
 
-TimeSlot* Planning::getFreeTimeSlot(QObject* q1, QObject* q2, QObject* q3){
+TimeSlot* Planning::getFreeTimeSlot(SuperClass* q1, SuperClass* q2, SuperClass* q3){
 
     QList<TimeSlot*> freeTimeSlots ;
 

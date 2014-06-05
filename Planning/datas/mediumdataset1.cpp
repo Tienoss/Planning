@@ -1,6 +1,9 @@
 #include "../main.h"
 
 void MediumDataSet1::load(){
+
+    /* Jeu de test de dev uniquement */
+
     // Promotion
     Promotion* p = (new Promotion())->setName("Promotion1");
 
