@@ -54,7 +54,7 @@ void MediumDataSet3::load(){
     //(new Module())->setTeacher(cambou)->setPromotion(i3)->setDuration(1200) ;
     //(new Module())->setTeacher(reinold)->setPromotion(i3)->setDuration(1200) ;
     //(new Module())->setTeacher(bordat)->setPromotion(i3)->setDuration(1200) ;
-    (new Module())->setTeacher(bordat)->setPromotion(p)->setDuration(480) ;
-    (new Module())->setTeacher(lemmonier)->setPromotion(p)->setDuration(480) ;
-    (new Module())->setTeacher(deschamps)->setPromotion(p)->setDuration(240) ;
+    (new Module())->setTeacher(bordat)->setPromotion(i4)->setDuration(480) ;
+    (new Module())->setTeacher(lemmonier)->setPromotion(i4)->setDuration(480) ;
+    (new Module())->setTeacher(deschamps)->setPromotion(i4)->setDuration(240) ;
 }
