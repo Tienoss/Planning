@@ -1,6 +1,9 @@
 #include "main.h"
 
 void MediumDataSet2::load(){
+
+     /* Jeu de test de dev uniquement */
+
     // Week
     (new Week())->setName("Week1");
 

@@ -60,8 +60,9 @@ class TimeSlot;
 #include "display/export.h"
 
 #include "datas/minimaldataset.h"
+#include "datas/mediumdataset.h"
 #include "datas/mediumdataset1.h"
 #include "datas/mediumdataset2.h"
-#include "datas/mediumdataset3.h"
+#include "datas/fulldataset.h"
 
 #endif // MAIN_H

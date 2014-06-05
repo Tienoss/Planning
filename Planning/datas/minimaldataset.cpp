@@ -16,7 +16,10 @@ void MinimalDataSet::load(){
     (new Day())->setName("Day1");
     // Period
     (new Period())->setFrom(480)->setLength(120);
+    (new Period())->setFrom(600)->setLength(120);
+    (new Period())->setFrom(720)->setLength(120);
+    (new Period())->setFrom(840)->setLength(120);
 
     // Module
-    (new Module())->setTeacher(t)->setPromotion(p)->setDuration(240) ;
+    (new Module())->setTeacher(t)->setPromotion(p)->setDuration(120) ;
 }

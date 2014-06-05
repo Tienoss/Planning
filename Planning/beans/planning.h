@@ -7,7 +7,7 @@ class Planning
 {
 private:
     int id;
-    int score;
+    float score;
 
 public:
     Planning();
@@ -16,12 +16,12 @@ public:
     static Planning* best;
     static Planning* test;
 
-    QHash<QObject*, QHash<TimeSlot*, Course*> > courses;
+    QHash<SuperClass*, QHash<TimeSlot*, Course*> > courses;
 
     //Methodes
     int getId();
-    Planning* setScore(int score);
-    int getScore();
+    Planning* setScore(float score);
+    float getScore();
     Planning* fromRandom();
     Planning* from(Planning* planning);
     Planning* evaluate();
@@ -32,9 +32,9 @@ public:
     Planning* log();
 
     bool courseIsPlannable(Course* course);
-    TimeSlot* getFreeTimeSlot(QObject* q1);
-    TimeSlot* getFreeTimeSlot(QObject* q1, QObject* q2);
-    TimeSlot* getFreeTimeSlot(QObject* q1, QObject* q2, QObject* q3);
+    TimeSlot* getFreeTimeSlot(SuperClass* q1);
+    TimeSlot* getFreeTimeSlot(SuperClass* q1, SuperClass* q2);
+    TimeSlot* getFreeTimeSlot(SuperClass* q1, SuperClass* q2, SuperClass* q3);
     Room* getFreeRoom(TimeSlot* timeslot);
 
     Course* pickUpExistingCourse() ;
